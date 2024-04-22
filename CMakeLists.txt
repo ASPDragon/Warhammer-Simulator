@@ -7,4 +7,4 @@ project(Warhammer-Simulator)
 
 file(GLOB SOURCES "src/*.cpp" "src/*hpp")
 
-add_executable(sbomber ${SOURCES})
+add_executable(Warhammer-Simulator ${SOURCES})

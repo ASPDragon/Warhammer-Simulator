@@ -1,9 +1,0 @@
-{
-  "revision": 0,
-  "rules": [
-    {
-      "primary-output": "CMakeFiles\\sbomber.dir\\src\\character.cpp.obj"
-    }
-  ],
-  "version": 1
-}

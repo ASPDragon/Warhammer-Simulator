@@ -1,3 +1,0 @@
-D:/GitHub/Warhammer-Simulator/build/CMakeFiles/sbomber.dir
-D:/GitHub/Warhammer-Simulator/build/CMakeFiles/edit_cache.dir
-D:/GitHub/Warhammer-Simulator/build/CMakeFiles/rebuild_cache.dir
