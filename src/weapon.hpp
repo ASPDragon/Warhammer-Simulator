@@ -1,5 +1,9 @@
 #include <optional>
 
+enum class WeaponType {
+    
+}
+
 class Weapon {
 public:
     Weapon(int&& attack, bool&& canShot, std::optional<int>&& weaponSkill,

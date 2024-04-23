@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/Users/iocaster/GitHub/Warhammer-Simulator/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -o CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o -c /Users/iocaster/GitHub/Warhammer-Simulator/src/datasheet.cpp",
+  "file": "/Users/iocaster/GitHub/Warhammer-Simulator/src/datasheet.cpp",
+  "output": "CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o"
+},
+{
+  "directory": "/Users/iocaster/GitHub/Warhammer-Simulator/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -o CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.o -c /Users/iocaster/GitHub/Warhammer-Simulator/src/main.cpp",
+  "file": "/Users/iocaster/GitHub/Warhammer-Simulator/src/main.cpp",
+  "output": "CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.o"
+},
+{
+  "directory": "/Users/iocaster/GitHub/Warhammer-Simulator/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -o CMakeFiles/Warhammer-Simulator.dir/src/weapon.cpp.o -c /Users/iocaster/GitHub/Warhammer-Simulator/src/weapon.cpp",
+  "file": "/Users/iocaster/GitHub/Warhammer-Simulator/src/weapon.cpp",
+  "output": "CMakeFiles/Warhammer-Simulator.dir/src/weapon.cpp.o"
+}
+]
