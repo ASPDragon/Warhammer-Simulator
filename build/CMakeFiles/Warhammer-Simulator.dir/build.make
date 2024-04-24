@@ -69,24 +69,10 @@ include CMakeFiles/Warhammer-Simulator.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Warhammer-Simulator.dir/flags.make
 
-CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o: CMakeFiles/Warhammer-Simulator.dir/flags.make
-CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o: /Users/iocaster/GitHub/Warhammer-Simulator/src/datasheet.cpp
-CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o: CMakeFiles/Warhammer-Simulator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/iocaster/GitHub/Warhammer-Simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o -MF CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o.d -o CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o -c /Users/iocaster/GitHub/Warhammer-Simulator/src/datasheet.cpp
-
-CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/iocaster/GitHub/Warhammer-Simulator/src/datasheet.cpp > CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.i
-
-CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/iocaster/GitHub/Warhammer-Simulator/src/datasheet.cpp -o CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.s
-
 CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.o: CMakeFiles/Warhammer-Simulator.dir/flags.make
 CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.o: /Users/iocaster/GitHub/Warhammer-Simulator/src/main.cpp
 CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.o: CMakeFiles/Warhammer-Simulator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/iocaster/GitHub/Warhammer-Simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/iocaster/GitHub/Warhammer-Simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.o -MF CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.o.d -o CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.o -c /Users/iocaster/GitHub/Warhammer-Simulator/src/main.cpp
 
 CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.i: cmake_force
@@ -96,6 +82,20 @@ CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.i: cmake_force
 CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/iocaster/GitHub/Warhammer-Simulator/src/main.cpp -o CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.s
+
+CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o: CMakeFiles/Warhammer-Simulator.dir/flags.make
+CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o: /Users/iocaster/GitHub/Warhammer-Simulator/src/datasheet.cpp
+CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o: CMakeFiles/Warhammer-Simulator.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/iocaster/GitHub/Warhammer-Simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o -MF CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o.d -o CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o -c /Users/iocaster/GitHub/Warhammer-Simulator/src/datasheet.cpp
+
+CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/iocaster/GitHub/Warhammer-Simulator/src/datasheet.cpp > CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.i
+
+CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/iocaster/GitHub/Warhammer-Simulator/src/datasheet.cpp -o CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.s
 
 CMakeFiles/Warhammer-Simulator.dir/src/weapon.cpp.o: CMakeFiles/Warhammer-Simulator.dir/flags.make
 CMakeFiles/Warhammer-Simulator.dir/src/weapon.cpp.o: /Users/iocaster/GitHub/Warhammer-Simulator/src/weapon.cpp
@@ -113,15 +113,15 @@ CMakeFiles/Warhammer-Simulator.dir/src/weapon.cpp.s: cmake_force
 
 # Object files for target Warhammer-Simulator
 Warhammer__Simulator_OBJECTS = \
-"CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o" \
 "CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.o" \
+"CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o" \
 "CMakeFiles/Warhammer-Simulator.dir/src/weapon.cpp.o"
 
 # External object files for target Warhammer-Simulator
 Warhammer__Simulator_EXTERNAL_OBJECTS =
 
-Warhammer-Simulator: CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o
 Warhammer-Simulator: CMakeFiles/Warhammer-Simulator.dir/src/main.cpp.o
+Warhammer-Simulator: CMakeFiles/Warhammer-Simulator.dir/src/datasheet.cpp.o
 Warhammer-Simulator: CMakeFiles/Warhammer-Simulator.dir/src/weapon.cpp.o
 Warhammer-Simulator: CMakeFiles/Warhammer-Simulator.dir/build.make
 Warhammer-Simulator: CMakeFiles/Warhammer-Simulator.dir/link.txt

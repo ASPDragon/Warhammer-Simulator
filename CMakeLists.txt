@@ -1,10 +1,16 @@
 cmake_minimum_required(VERSION 3.29.0)
 
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(Warhammer-Simulator)
 
-file(GLOB SOURCES "src/*.cpp" "src/*hpp")
+set(PROJECT_SRC
+    src/datasheet.hpp
+    src/weapon.hpp
+    src/main.cpp
+    src/datasheet.cpp
+    src/weapon.cpp
+)
 
-add_executable(Warhammer-Simulator ${SOURCES})
+add_executable(Warhammer-Simulator ${PROJECT_SRC})
