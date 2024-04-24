@@ -1,6 +1,8 @@
 #include <optional>
 
-enum class WeaponType {};
+enum class WeaponType {
+    Pistol
+};
 
 struct Weapon {
     int attacks;
