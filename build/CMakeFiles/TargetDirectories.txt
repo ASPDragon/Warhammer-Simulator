@@ -1,3 +1,0 @@
-/Users/iocaster/GitHub/Warhammer-Simulator/build/CMakeFiles/Warhammer-Simulator.dir
-/Users/iocaster/GitHub/Warhammer-Simulator/build/CMakeFiles/edit_cache.dir
-/Users/iocaster/GitHub/Warhammer-Simulator/build/CMakeFiles/rebuild_cache.dir
