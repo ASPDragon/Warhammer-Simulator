@@ -1,3 +1,5 @@
+#pragma once
+
 #include <optional>
 
 enum class WeaponType {

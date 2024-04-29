@@ -1,12 +1,19 @@
+#pragma once
+
 #include <string>
-#include <array>
+#include <vector>
 #include "weapon.hpp"
 
-class Character {
+class Datasheet {
 public:
-    
+    Datasheet(std::string&& unitName, int&& move, int&& toughness, int&& save, int&& wounds, int&& leadership, int&& objectiveControl);
+
+    bool isDead();
+
+    void attack();
 protected:
     std::string unitName;
+    // std::string image;
     int move;
     int toughness;
     int save;
@@ -14,5 +21,5 @@ protected:
     int leadership;
     int objectiveControl;
 
-    std::array<Weapon, 4> armoury;
+    std::vector<Weapon> armoury;
 };

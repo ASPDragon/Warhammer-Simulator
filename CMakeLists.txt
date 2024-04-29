@@ -8,9 +8,13 @@ project(Warhammer-Simulator)
 set(PROJECT_SRC
     src/datasheet.hpp
     src/weapon.hpp
+    src/dice.hpp
+    src/simulate.hpp
     src/main.cpp
     src/datasheet.cpp
     src/weapon.cpp
+    src/dice.cpp
+    src/simulate.cpp
 )
 
 add_executable(Warhammer-Simulator ${PROJECT_SRC})
