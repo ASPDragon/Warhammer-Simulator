@@ -1,0 +1,19 @@
+@@startuml Structure
+
+participant Input
+participant Character
+participant Weapon
+participant Dice
+participant Simulate
+database DatasheetsData
+participant Output
+
+DatasheetsData->Character: Assign characters stats from the Database.
+DatasheetsData->Weapon: Asigning weapons stats from the Database.
+Weapon->Character: Every Hero needs a suitable weapon, right?
+Character->Input: Uploading characters to the View (or something like this).
+Input->Simulate: Selecting Data on the View.
+Dice->Simulate: Throwing dice.
+Simulate->Output: Turns, dices throws and output of the result?
+
+@@enduml
