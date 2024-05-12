@@ -3,17 +3,23 @@
 participant Input
 participant Character
 participant Weapon
+participant Player
 participant Dice
 participant Simulate
+participant GameController
+participant Game
 database DatasheetsData
 participant Output
 
 DatasheetsData->Character: Assign characters stats from the Database.
 DatasheetsData->Weapon: Asigning weapons stats from the Database.
 Weapon->Character: Every Hero needs a suitable weapon, right?
-Character->Input: Uploading characters to the View (or something like this).
-Input->Simulate: Selecting Data on the View.
-Dice->Simulate: Throwing dice.
-Simulate->Output: Turns, dices throws and output of the result?
+Character->Player: Connecting character to the player's army (or something like this).
+Player->Game: Game provides the number of players with their army, sets the size of armies in points
+Input->GameController: Selecting Data on the View.
+Dice->GameController: Throwing dice.
+Simulate->Game: Turns, dices throws and output of the result?
+Game->Output
+
 
 @@enduml
