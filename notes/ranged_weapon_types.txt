@@ -1,0 +1,26 @@
+Assault:
+- Can be shot even if firing model's unit Advanced.
+- Substract 1 from hit rolls if the firing model's unit Advanced.
+
+Heavy:
+- Substract 1 from hit rolls if firing model is Infantry and the unit
+  has moved this turn.
+
+Rapid_Fire:
+- Double numbers of attacks made if target is withing half weapon's
+  range.
+
+Grenade:
+- Only one model can use a Grenade when its unit shoots.
+
+Pistol:
+- Can be shot even if firing model's unit is within Engagement Range
+  of enemy unit.
+- Cannot be shot alongside any other type of weapon.
+
+
+Blast_Weapons:
+- Blast Weapons: Minimum three attacks against units with 6+ models.
+  Alway make maximum number of attacks against units with 11+ models.
+- Can never be used to attack units withing the firing unit's Engagement
+  Range.

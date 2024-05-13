@@ -1,0 +1,36 @@
+Shooting_Phase:
+- Select a unit (not Fell Back, excluding Titynic units) from the army to shoot with.
+- When a unit shoots, select targets then resolve attacks with any or all
+  ranged weapons that models in that unit are equipped with.
+- Select another unit from the army to shoot with.
+- Once you shot with all your units, progress to the Charge phase
+
+Select_Targets:
+- Select targets for all weapons before any attacks are resolved.
+- At least one model in the target unit must be visible to the attacking model and
+  within range of the attacking weapon.
+- If a unit targets multiple units, all attacks against one unit must be resolved
+  before resolving attacks against the next.
+- If a unit shoots with multiple weapons, all attacks made with weapons that have the
+  same profile must be resolved before resolving attacks with the next.
+
+Locked_In_Combat:
+- Units cannot shoot while they are withing Engagement rRnge of any enemy units.
+- Units cannot shoot at targets within Engagement Range of any friendly units.
+
+Number_Of_Attacks:
+- All of a ranged weapon's attacks must be made against the same target unit.
+- Number of attacks = number after weapon's type.
+
+Big_Guns_Never_Tire:
+- Monsters and Vehicles can shoot ranged weapons even if within Engagement Range
+  of enemy unit.
+- Monsters and Vehicles can target other units, but cannot resolve these attacks
+  while any enemy models remain within their Engagement Range.
+- Substract 1 from hit rolls made when Monsters and Vehicles shoot Heavy weapons
+  while any enemy units remain within their Engagement Range.
+
+Look_Out,_Sir:
+- Cannot shoot at an enemy Character with 9 or less wounds while it is within 3"
+  of a friendly unit (Monster, Vehicle or unit of 3+ models) unless it is the
+  closest target.

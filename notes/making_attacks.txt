@@ -1,0 +1,36 @@
+Hit_Roll:
+- Hit roll (ranged weapon): Roll one D6; hit scored if result equals
+  or beats attacking model's BS. Otherwise attack fails.
+- Hit roll (melee weapon): Roll one D6; hit scored if result equals
+  or beats attacking model's WS. Otherwise attack fails.
+
+Wound_Roll:
+- Wound roll: roll one D6 and compare attack's S with target's T on
+  table lower. Target wounded if score equals or beats the required
+  result. Otherwise attack fails.
+
+Wound_Roll_Table:
+- Is the Strength TWICE (or more) than the Toughness - 2+
+- Is the Strength GREATER than the Toughness - 3+
+- Is the Strength EQUAL to the Toughness - 4+
+- Is the Strength LOWER than the Toughness - 5+
+- Is the Strength HALF (or less) than the Toughness - 6+
+
+Allocate_Attack:
+- Player commanding target unit selects one model
+  in that unit. If a model in the unit has already lost wounds, or
+  has already had attack allocated to it this phase, they must select
+  this model.
+
+Saving_Throw:
+- Roll one D6 and modify by the attack's AP. If result
+  less than Sv of the selected model, the saving throw is failed and
+  it suffers damage. Otherwise attack is saved.
+
+Inflict_Damage:
+- The selected model loses a number of wounds equal to attack's D.
+- If a model is destroyed be an attack, any excess damage inflicted
+  by that attack is lost.
+- Unmodified hit rolls, wound rolls and saving throws of 1 always fail.
+- Unmodified  hit rolls, wound rolls and saving throws pf 6 always succeed.
+- Hit and wound rolls cannot be modified by more than -1 or +1.

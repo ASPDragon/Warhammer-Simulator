@@ -1,0 +1,43 @@
+Psychic_Phase:
+
+- If model has 'Psychic' keyword it cannot be selected to manifest its powers.
+- Players can manifest Psykers powers with as many not fell back Psychic units as they wish 
+  (once per unit for each Psychic phase).
+- If no units with 'Psychic' keyword left - Psychic phase ends and game proceeds
+  to Shooting phase.
+
+Psychic_Powers:
+
+- All Psykers know Smite.
+- Psykers will know additional Psychic powers, as described on their datasheet.
+- Each psychic power has a Warp Charge value - the higher this is, the more
+  difficult it is to manifest the Psychic power.
+
+Manifesting_Psychic_Powers:
+- Select Psychic power.
+- Player cannot select the same Psychic power more than once per battle round,
+  unless the power is Smite.
+- Attempt to manifest the Psychic power by taking a Psychic test.
+- The opponent can attempt to deny the Psychic power by taking a Deny the Witch test.
+- If successfully manifested, resolve the power's effect.
+- Select another Psychic power.
+
+Psychic_Test:
+- Psychic test: Passed if 2d6 equals or exceeds Psychic power's warp charge.
+- If double 1 or double 6 rolled, Psyker suffers Perils of the Warp.
+
+Deny_The_Witch:
+- Deny the Witch: Passed if 2d6 exceeds result of the opposing Psyker's
+  Psychic test.
+- Only one attempt can be made to deny each Psychic power.
+
+Smite:
+- Warp Charge 5: A Psychic test of 5+ is required to manifest Smite.
+- Warp Charge increases by 1 for each other attempt to manifest Smite made in this phase.
+- If manifested, closes visible enemy unit in 18" suffers D3 mortal wounds.
+- If manifested with a Psychic test result of 11+, enemy instead suffers D6 mortal wounds.
+
+Perils_Of_The_Warp:
+- Perils of the Warp: The Psyker unit manifesting the power suffers D3 mortal wounds.
+- If Psyker unit is destroyed, the psychic power fails to manifest.
+- If Psyker unit destroyed, every other unit within 6" suffers D3 mortal wounds.
