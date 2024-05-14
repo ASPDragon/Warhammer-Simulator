@@ -1,0 +1,51 @@
+Charge_Phase:
+- Charges
+- Heroic interventions
+
+Charges:
+- Select a unit from the army to charge with.
+- Charge with that unit (see below).
+- Select another unit from the army to charge with.
+- Once all the player's units have charged, progress to the Heroic
+  Interventions step.
+
+Charging_With_A_Unit:
+- Declare targets of the charge (must be within 12").
+- Charge roll 2D6".
+- If insufficient to move charging unit into Engagement Range of all targets,
+  charge fails.
+- If chage successfull, models make their charge move.
+- Cannot make a charge move within Engagement Range of any unit that was not
+  the target of the charge.
+
+Heroic_Interventions:
+- Select one Character unit to perform a Heroic Intervention.
+- Cannot perform a Heroic Intervention if any enemy units are in Engagement
+  Range.
+- Must be an enemy unit within 3" jorizontal and 5" vertical to perform a
+  Heroic Intervention.
+- Select another Character unit to perform a Heroic Intervention.
+- Once all playe's Character units have performed Heroic Intervention, progress
+  to the Fight phase.
+
+Performing_A_Heroic_Intervention:
+- Heroic Intervention: Move up to 3".
+-  Must end closer to the closes enemy model.
+
+Chargin_Over_Terrain:
+- Models can make a move freely over terrain features 1" or less in height.
+- Models cannot move through taller terrain features but can climb up adn down
+  them.
+- Models cannot finish a charge move mid-climb.
+
+Flying_When_Charging:
+- Fly models can move over other models when the make a charge move.
+- Fly models move over terrain (including Buildings) like any other model when
+  they make a charge move.
+
+Overwatch:
+- Overwatch: Before charge roll made, all charge targets that can fire Overwatch
+  can do so.
+- Can never fire Overwatch while enemy units are in Engagement Range.
+- When firing Overwatch, shoot with unit, but attacks only hit on unmodified 6s.
+ 

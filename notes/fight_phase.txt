@@ -1,0 +1,43 @@
+Fight_Phase:
+
+- Starting with your opponent, alternate selecting units to fight with.
+- When a unit fights, it piles in, then it makes close combat attacks,
+  then it consolidates.
+- If one player has no more units left to fight with, their opponent
+  then fights with their remaining units, one at time.
+- Once all units have fought, progress to the Morale phase.
+
+Charging_Units_Fight_First:
+- Units that made a charge move this turn fight before all other units.
+
+Pile_In:
+- Pile in: Move up to 3".
+- Must end closer to the closest enemy model.
+
+Which_Models_Fight:
+- A model can fight if it is in Engagement Range of an enemy unit.
+- A model can fight if it is withing 1/2" of another model from their own unit
+  that is within 1/2" of an enemy unit.
+
+Number_Of_Attacks:
+- Number of attacks made by each model that can fight = A.
+
+Select_Targets:
+- If the attacking unit made a charge move this turn, its model can only
+  target units it declared a charge against this turn, or units
+  that performed a Heroic Intervention this turn.
+- Select targets for all attacks, before any attacks are resolved.
+- If a unit targets multiple units, all attacks against one unit must be
+  resolved before resolving attacks against the next.
+
+Select_Weapon:
+- Each close combat attack is made with a melee weapon.
+- A model makes attacks using the close combat weapon profile if it has
+  no other melee weapons.
+- If a unit attacks with multiple weapons, all attacks made with weapons
+  that have the same profile must be resolved before resolving attacks with
+  the next.
+
+Consolidate:
+- Consolidate: Move up to 3".
+- Must end closer to the closest enemy model.

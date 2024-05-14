@@ -1,0 +1,26 @@
+Morale_Tests:
+- Players alternate taking Morale tests for units from their army
+  that have suffered casualties this turn.
+- If one player has no more units left to take Morale tests, their
+  opponent then takes Morale tests for their remaining units, one at
+  a time.
+- Once all units have taken Morale tests, progress to the Unit
+  Coherency Checks step.
+
+Morale_Tests:
+- Morale test = D6 + number of models destroyed this turn.
+- Unmodified roll of 1 always a success (no models flee).
+- If Morale test exceeds unit's Ld, one model flees and other models
+  must take Combat Attrition tests.
+
+Combat_Attrition_Tests:
+- Combat Attrition tests: Roll one D6 for each remaining model in unit;
+  for each 1 one additional model flees.
+- Substract 1 from Combat Attrition tests if unit is below Half-strength.
+
+Unit_Coherency_Checks:
+- Remove models from units in your army that are not in unit coherency.
+- Once all out of coherency models have been removed (if any), the Morale
+  phase ends.
+- The player's turn then ends and, unless the battle ends, the next player's
+  turn begins.

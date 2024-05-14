@@ -1,0 +1,25 @@
+Objective_Markers:
+- Objective marker: 40mm round marker (weird one).
+- Model in range of objective marker if withing 3" horizontally and 5" vertically.
+- Objective marker controlled by player with most models in range.
+- Aircraft and Fortifications cannot controll objective markers.
+
+Objective_Secured:
+- Objective Secured: Player controls objective marker if any of their models in
+  range have this ability.
+
+Mission:
+Only_War:
+* Muster Armies, choosing Leader (Warlord trait)
+* Mission Objectives:
+ - Slay the enemy warlord (1 victory point).
+ - Capture and Control: At the end of each player's Command phase, the player
+   whose turn it is score 1 vectiry point for each objective marker they currently
+   control. If they controll more objective markers than enemy, at the end of the
+   battle they score 1 bonus victory point.
+* Create the Battlefield.
+* Deploy Forces.
+* Determine First Turn.
+* Resolve Pre-Battle Rules.
+* Ending The Battle.
+* Determine Victor.
