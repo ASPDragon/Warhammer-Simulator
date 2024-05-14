@@ -1,0 +1,64 @@
+Army:
+- Collection of models under player's command.
+
+Units:
+- Unit: A group of models from the same datasheet.
+- Friendly models = all models in the same army.
+- Enemy models = all models in your opponent’s army.
+- Friendly units = all units in the same army.
+- Enemy units = all units in opponent’s army.
+
+Unit_Coherency:
+- Unit coherency: 2" horizontally + 5" vertically.
+- Each model must be in unit coherency with one other model from own unit.
+- While unit has 6+ models, each model must be in unit coherency with 2
+  other models from own unit.
+
+Engagement_Range:
+- Engagement Range: 1" horizontally + 5" vertically.
+- Models cannot be set up within Engagement Range of enemy models.
+
+Measuring_Distances:
+- Distances measured in inches (").
+- Always measure closest distance between bases (or hulls).
+- Hull = Any part of a model that does not have a base. Can measure distances
+  whenever you want.
+- If several units tied for closest, player resolving the rule selects which
+  is closest.
+
+Within_And_Wholly_Within:
+- Model within = any part of model’s base (or hull). 
+- Model wholly within = every part of model’s base (or hull).
+- Unit within = any model within.
+- Unit wholly within = every model wholly within.
+
+Dice:
+- D6 = A six-sided dice.
+- D3 = D6 divided by 2 (rounding up).
+- All modifiers cumulative.
+- Apply modifiers in the following order: division, multiplication, addition,
+  then subtraction.
+- Round fractions up after all modifiers have been applied. Dice roll cannot
+  be modified to less than 1.
+
+Re-Rolls:
+- Re-roll: Roll dice again.
+- Re-rolls are applied before modifiers (if any).
+- A dice can never be re-rolled more than once. Unmodified dice: Result of
+  roll after re-rolls, but before modifiers (if any).
+
+Roll-Offs:
+- Roll-off: Both players roll a D6 – highest wins.
+- Roll again if a tie.
+
+Sequencing:
+If several rules must be resolved at the same time, the player whose turn
+  it is chooses the order to resolve them.
+
+Starting_Strength,_Half-Strength_And_Destroyed_Units:
+- Starting Strength: Number of models in unit when it is added to your army.
+- When a model is destroyed, remove it from
+  the battlefield.
+- Below Half-strength: Number of models in unit is less than half its Starting
+  Strength.
+- When the last model in a unit is destroyed, the unit is said to be destroyed.

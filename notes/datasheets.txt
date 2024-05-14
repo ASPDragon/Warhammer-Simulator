@@ -1,0 +1,34 @@
+* Unit_Name
+* Battlefield_Role
+* Power_Rating
+* Profiles:
+- Move (M): This is the speed at which a model moves across the battlefield.
+  If a model has a Move of ‘-’ it is unable to move at all�
+- Toughness (T): This reflects the model’s resilience against physical harm.
+- Save (Sv): This indicates the protection a model’s armour gives.
+- Wounds (W): Wounds show how much damage a model can sustain before it succumbs
+  to its injuries.
+- Leadership (Ld): This reveals how courageous, determined or self-controlled
+  a model is.
+- (OC)
+
+* Weapons:
+- Range:  How far the weapon can shoot� Weapons with a range of ‘Melee’ are melee
+  weapons and can only be used in hand-to-hand combat� All other weapons are ranged
+  weapons� Some weapons have a minimum and maximum range, for example 6"-48"; such
+  weapons cannot target units that are wholly within the shorter range.
+- Attacks (A): This tells you how many times a model armored with this weapon can
+  strike blows in hand-to-hand combat. If a weapon has an Attack of '-' it cannot be
+  use in melee at all.
+- Weapon Skill (WS): This tells player a weapon's skill at hand-to-hand fighting.
+  If a weapon has a Weapon Skill of '-' it is unusable to fight in melee at all.
+- Ballistic Skill (BS): This shows how accurate a weapon is when shooting. If
+  a weapon has a Ballistic Skill of '-' it cannot be used for shooting.
+- Type: These are all explained under the Shooting and Fight phases of the basic rules.
+  These types are denoted by symbols on the condensed datasheet.
+- Strength (S): How likely the weapon is to wound a
+  foe If a weapon’s Strength lists ‘User’, it is equal to the bearer’s Strength
+  characteristic. If a weapon lists a modifier (e.g. ‘+1’ or ‘x2’), modify the
+  bearer’s Strength characteristic as shown (e.g. if a weapon’s Strength was ‘x2’,
+  and the bearer had a Strength of 6, that weapon has a Strength of 12).
+
