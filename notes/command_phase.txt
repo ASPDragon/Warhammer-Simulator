@@ -1,0 +1,3 @@
+Command_Phase:
+- Battle-forged CP bonus: Gain 1 CP if army is Battle-forged.
+- Resolve any rules that occur in the Command phase. Progress to the Movement phase.

@@ -1,0 +1,6 @@
+Battle_Round:
+
+Out_Of_Phase_Rules:
+- When resolving an out of phase rule, all rules that normally apply 
+  in that phase continue to apply.
+- Phase-specific Stratagems cannot be used when resolving out of phase rules.

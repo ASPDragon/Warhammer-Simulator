@@ -1,0 +1,31 @@
+- Create Application Window with Qt-GUI.
+
+- Load Database/Json.
+
+- Create Army/Armies of selected size and Pass data from Step 2 there.
+
+- Create Game-class with 2 selected armies and battlefield of selected size.
+
+- Execute battle-round class in the cycle(? Depends on Framework):
+
+  - Instanciate CommandPhase-class and apply rules by CP.
+    Battle-forged flag gives +1 CP
+
+  - MovementPhase. Resolve rules for as much units as player wants(kinda difficult, I guess)
+
+  - PsykerPhase:
+    - Instantiating PsychicPower-class and adding them to unit with 'keyword' Psyker.
+    - Warp charge for each PsychicPower.
+    - Throwing D6 Dice
+
+  - ShootingPhase
+
+  - ChargePhase and HeroicIntevention
+
+  - FightPhase
+
+  - MoralePhase
+  
+  - WinCheck. If enemy has units and other conditions - change player who's turn. Rince and repeat. 
+
+- Show output.
