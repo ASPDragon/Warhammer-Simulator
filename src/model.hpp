@@ -1,5 +1,6 @@
-#include <vector>
+#pragma once
 
+#include <vector>
 #include "utils.cpp"
 
 class Datasheet;
