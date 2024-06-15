@@ -6,7 +6,7 @@
 
 class Datasheet {
 public:
-    Datasheet(std::string&& unitName, int&& move, int&& toughness, int&& save, int&& wounds, int&& leadership, int&& objectiveControl);
+    Datasheet(std::string&& unitName, int&& move, int&& toughness, int&& save, int&& wounds, int&& leadership, int&& objectiveControl, int&& unitComposition);
 
     bool isDead();
 
@@ -21,5 +21,6 @@ protected:
     int leadership;
     int objectiveControl;
 
-    std::vector<Weapon> armoury;
+    // fields related to unit
+    int unitsComposition;
 };

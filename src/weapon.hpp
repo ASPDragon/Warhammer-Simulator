@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include <optional>
 
 enum class WeaponType {
@@ -7,6 +8,7 @@ enum class WeaponType {
 };
 
 struct Weapon {
+    std::string name;
     int attacks;
     bool canShot;
     std::optional<int> weaponSkill;

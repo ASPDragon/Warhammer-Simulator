@@ -7,6 +7,6 @@ Dice::Dice(unsigned int&& maxValue)
 unsigned int Dice::throwDice() {
     std::random_device random;
     std::mt19937_64 mt { random() };
-    std::uniform_int_distribution<unsigned int> rngNumber{1, maxValue};
-    return rngNumber(mt);
+    std::uniform_int_distribution<unsigned int> rngNumber{0, maxValue};
+    return rngNumber(mt) + 1;
 }
