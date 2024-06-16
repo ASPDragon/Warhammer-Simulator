@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <string>
 #include "utils.cpp"
 
 class Datasheet;
@@ -10,9 +11,9 @@ class Model {
 public:
     Model();
 
-    Weapon& getWeapon() {}
+    Weapon& getWeapon(std::string& weaponName);
 private:
-    Datasheet& datasheet;
+    Datasheet& _datasheet;
     Coords coords;
     std::vector<Weapon> someName;
 };

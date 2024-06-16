@@ -1,26 +1,28 @@
 #pragma once
 
 #include <string>
-#include <vector>
-#include "weapon.hpp"
 
 class Datasheet {
 public:
-    Datasheet(std::string&& unitName, int&& move, int&& toughness, int&& save, int&& wounds, int&& leadership, int&& objectiveControl, int&& unitComposition);
+    Datasheet(std::string& unitName, unsigned int& move, unsigned int& toughness, unsigned int& save, unsigned int& wounds,
+              unsigned int& leadership, unsigned int& objectiveControl, unsigned int& unitComposition, unsigned int& cost);
+
+    unsigned int getUnitComposition() { return _unitsComposition; }
 
     bool isDead();
 
-    void attack();
 protected:
-    std::string unitName;
+    std::string _unitName;
     // std::string image;
-    int move;
-    int toughness;
-    int save;
-    int wounds;
-    int leadership;
-    int objectiveControl;
+    unsigned int& _move;
+    unsigned int& _toughness;
+    unsigned int& _save;
+    unsigned int& _wounds;
+    unsigned int& _leadership;
+    unsigned int& _objectiveControl;
 
     // fields related to unit
-    int unitsComposition;
+    unsigned int& _unitsComposition;
+    unsigned int& _cost;
+    
 };

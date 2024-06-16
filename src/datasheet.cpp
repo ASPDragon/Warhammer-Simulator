@@ -1,10 +1,10 @@
 #include "datasheet.hpp"
 
-Datasheet::Datasheet(std::string&& unitName, int&& move, int&& toughness, int&& save, int&& wounds, int&& leadership, int&& objectiveControl, int&& unitComposition)
-: unitName{std::move(unitName)}, move{std::move(move)}, toughness{std::move(toughness)}, save{std::move(save)},
-wounds{std::move(wounds)}, leadership{std::move(leadership)}, objectiveControl{std::move(objectiveControl)},
-unitsComposition{std::move(unitComposition)} {}
+Datasheet::Datasheet(std::string& unitName, unsigned int& move, unsigned int& toughness, unsigned int& save, unsigned int& wounds,
+              unsigned int& leadership, unsigned int& objectiveControl, unsigned int& unitComposition, unsigned int& cost)
+: _unitName{unitName}, _move{move}, _toughness{toughness}, _save{save}, _wounds{wounds}, _leadership{leadership}, 
+  _objectiveControl{objectiveControl}, _unitsComposition{unitComposition}, _cost{cost} {}
 
 bool Datasheet::isDead() {
-    return wounds == 0;
+    return _wounds == 0;
 }
