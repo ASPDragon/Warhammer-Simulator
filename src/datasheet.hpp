@@ -1,28 +1,27 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 class Datasheet {
 public:
-    Datasheet(std::string& unitName, unsigned int& move, unsigned int& toughness, unsigned int& save, unsigned int& wounds,
-              unsigned int& leadership, unsigned int& objectiveControl, unsigned int& unitComposition, unsigned int& cost);
+    Datasheet(const std::string_view unitName, const unsigned int move, const unsigned int toughness,
+              const unsigned int save, const unsigned int wounds, const unsigned int leadership,
+              const unsigned int objectiveControl, const unsigned int modelsNum, const unsigned int cost);
 
-    unsigned int getUnitComposition() { return _unitsComposition; }
-
-    bool isDead();
+    unsigned int getUnitComposition() const { return _modelsNum; }
 
 protected:
     std::string _unitName;
     // std::string image;
-    unsigned int& _move;
-    unsigned int& _toughness;
-    unsigned int& _save;
-    unsigned int& _wounds;
-    unsigned int& _leadership;
-    unsigned int& _objectiveControl;
+    const unsigned int _move;
+    const unsigned int _toughness;
+    const unsigned int _save;
+    const unsigned int _wounds;
+    const unsigned int _leadership;
+    const unsigned int _objectiveControl;
 
     // fields related to unit
-    unsigned int& _unitsComposition;
-    unsigned int& _cost;
+    const unsigned int _modelsNum;
+    const unsigned int _cost;
     
 };

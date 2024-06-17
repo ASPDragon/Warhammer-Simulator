@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <string>
-#include "utils.cpp"
+#include "utils.hpp"
 
 class Datasheet;
 class Weapon;
@@ -12,6 +12,9 @@ public:
     Model();
 
     Weapon& getWeapon(std::string& weaponName);
+
+    bool isDead();
+    
 private:
     Datasheet& _datasheet;
     Coords coords;

@@ -1,11 +1,14 @@
 #pragma once
 
+#include <vector>
+
 class Datasheet;
+class Model;
 
 class Unit {
 public:
-    Unit(Datasheet& datasheet);
+    Unit();
     
 private:
-    Datasheet& _datasheet;
+    std::vector<Model> unit;
 };
