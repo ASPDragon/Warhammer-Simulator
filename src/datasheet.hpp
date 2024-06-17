@@ -8,7 +8,8 @@ public:
               const unsigned int save, const unsigned int wounds, const unsigned int leadership,
               const unsigned int objectiveControl, const unsigned int modelsNum, const unsigned int cost);
 
-    unsigned int getUnitComposition() const { return _modelsNum; }
+    unsigned int getModelsNum() const { return _modelsNum; }
+    unsigned int getWounds() const { return _wounds; }
 
 protected:
     std::string _unitName;

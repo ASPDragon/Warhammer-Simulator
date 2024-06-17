@@ -9,14 +9,15 @@ class Weapon;
 
 class Model {
 public:
-    Model();
+    Model(const Datasheet& datasheet);
 
-    Weapon& getWeapon(std::string& weaponName);
+    Weapon& getWeapon(std::string& weaponName) const;
 
     bool isDead();
     
 private:
-    Datasheet& _datasheet;
+    const Datasheet& _datasheet;
     Coords coords;
+    unsigned int wounds;
     std::vector<Weapon> someName;
 };
