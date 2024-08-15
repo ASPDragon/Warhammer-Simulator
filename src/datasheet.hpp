@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include <string>
 
 class Datasheet {
 public:
@@ -8,8 +9,9 @@ public:
               const unsigned int save, const unsigned int wounds, const unsigned int leadership,
               const unsigned int objectiveControl, const unsigned int modelsNum, const unsigned int cost);
 
-    unsigned int getModelsNum() const { return _modelsNum; }
-    unsigned int getWounds() const { return _wounds; }
+    uint16_t getModelsNum() const { return _modelsNum; }
+    uint16_t getWounds() const { return _wounds; }
+    uint16_t getToughness() const { return _toughness; }
 
 protected:
     std::string _unitName;

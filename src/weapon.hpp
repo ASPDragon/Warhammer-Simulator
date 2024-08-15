@@ -10,9 +10,8 @@ enum class WeaponType {
 struct Weapon {
     std::string name;
     int attacks;
-    bool canShot;
-    std::optional<int> weaponSkill;
-    std::optional<int> ballisticSkill;
+    enum { Melee, Ranged };
+    uint16_t skill;
     int strength;
     int armourPenetration;
     int damage;
