@@ -17,5 +17,5 @@ public:
 private:
     Coords coords;
     unsigned int wounds;
-    std::vector<Weapon> someName;
+    std::vector<Weapon> weapons;
 };
