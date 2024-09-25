@@ -6,7 +6,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 project(Warhammer-Simulator)
 
-add_compile_options("-###")
+# add_compile_options("-###")
 add_compile_options("-v")
 
 set(PROJECT_SRC
