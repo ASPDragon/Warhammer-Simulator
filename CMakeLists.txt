@@ -13,16 +13,18 @@ set(PROJECT_SRC
     src/datasheet.hpp
     src/unit.hpp
     src/weapon.hpp
+    src/player.hpp
     src/dice.hpp
-    src/simulate.hpp
+    src/battle_round.hpp
     src/model.hpp
     src/main.cpp
     src/datasheet.cpp
     src/unit.cpp
     src/weapon.cpp
+    src/player.cpp
     src/dice.cpp
-    src/simulate.cpp
+    src/battle_round.cpp
     src/model.cpp
 )
 
-add_executable(Warhammer-Simulator ${PROJECT_SRC})
+add_executable(${PROJECT_NAME} ${PROJECT_SRC})
