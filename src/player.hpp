@@ -1,8 +1,8 @@
-#include <set>
+#include <vector>
 
 class Unit;
 
 class Player {
 private:
-    std::set<Unit> army;
+    std::vector<Unit> army;
 };
