@@ -2,7 +2,6 @@
 
 #include <string>
 #include <cstdint>
-#include <optional>
 
 enum class WeaponType {
     Pistol
