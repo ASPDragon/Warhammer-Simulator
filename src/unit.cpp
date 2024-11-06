@@ -7,7 +7,7 @@
 Unit::Unit(Datasheet& datasheet)
 : _datasheet{datasheet} {}
 
-int Unit::Attack(const Unit& enemyUnit, const Weapon& currentWeapon) {
+int Unit::attack(const Unit& enemyUnit, const Weapon& currentWeapon) const {
     int wounds = 0;
     int totalAttacksNum = 0;
 
@@ -38,4 +38,8 @@ int Unit::Attack(const Unit& enemyUnit, const Weapon& currentWeapon) {
     }
 
     return wounds;
+}
+
+bool Unit::isAlive() const  { 
+    return _datasheet.getWounds() > 0;
 }

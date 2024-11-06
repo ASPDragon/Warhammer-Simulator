@@ -12,11 +12,10 @@ public:
     Unit(Datasheet& datasheet);
 
     Datasheet& getDatasheet() const { return _datasheet; }
-    int attack(const Unit& enemyUnit, const Weapon& currentWeapon);
-    bool isUnitAlive() const { return isAlive; }
+    int attack(const Unit& enemyUnit, const Weapon& currentWeapon) const;
+    bool isAlive() const;
     
 private:
     Datasheet& _datasheet;
     std::vector<Model> unit;
-    bool isAlive;
 };

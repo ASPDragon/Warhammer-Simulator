@@ -13,6 +13,7 @@ public:
 protected:
     bool hasCharged(const Unit& unit) const;
     bool canFight(const Unit& unit) const;
+    
 private:
     std::vector<Player> players;
 };
