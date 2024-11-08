@@ -9,10 +9,10 @@ enum class WeaponType {
 
 struct Weapon {
     std::string name;
-    int attacks;
+    uint16_t attacks;
     enum { Melee, Ranged };
     uint16_t skill;
-    int strength;
-    int armourPenetration;
-    int damage;
+    uint16_t strength;
+    uint16_t armourPenetration;
+    uint16_t damage;
 };

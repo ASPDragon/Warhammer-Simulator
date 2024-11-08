@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <string>
-#include "utils.hpp"
+#include "coords.hpp"
 
 class Weapon;
 
@@ -11,6 +11,7 @@ public:
     Model();
 
     Weapon& getWeapon(std::string& weaponName) const;
+    Coords getCoords() const { return coords; }
 
     bool isDead();
     
