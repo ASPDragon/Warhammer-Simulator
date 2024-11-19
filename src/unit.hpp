@@ -18,4 +18,5 @@ public:
 private:
     Datasheet& _datasheet;
     std::vector<Model> unit;
+    bool hasCharged = false;
 };

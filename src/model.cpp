@@ -5,9 +5,7 @@
 #include "weapon.hpp"
 
 Model::Model(const Datasheet& datasheet)
-: _datasheet{datasheet} {
-    this->wounds = datasheet.getWounds();
-}
+: wounds{ datasheet.getWounds() } {}
 
 bool Model::isDead() {
     return this->wounds == 0;

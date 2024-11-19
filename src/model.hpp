@@ -2,13 +2,15 @@
 
 #include <vector>
 #include <string>
+#include <cstdint>
 #include "coords.hpp"
 
 class Weapon;
+class Datasheet;
 
 class Model {
 public:
-    Model();
+    Model(const Datasheet& datasheet);
 
     Weapon& getWeapon(std::string& weaponName) const;
     Coords getCoords() const { return coords; }
@@ -17,6 +19,6 @@ public:
     
 private:
     Coords coords;
-    unsigned int wounds;
+    uint16_t wounds;
     std::vector<Weapon> weapons;
 };
