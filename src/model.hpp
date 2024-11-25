@@ -12,7 +12,7 @@ class Model {
 public:
     Model(const Datasheet& datasheet);
 
-    Weapon& getWeapon(std::string& weaponName) const;
+    const Weapon* getWeapon(std::string& weaponName) const;
     Coords getCoords() const { return coords; }
 
     bool isDead();

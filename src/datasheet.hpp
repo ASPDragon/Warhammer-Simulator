@@ -10,22 +10,34 @@ public:
               const uint16_t save, const uint16_t wounds, const uint16_t leadership,
               const uint16_t objectiveControl, const uint16_t modelsNum, const uint16_t cost);
 
+    std::string_view getUnitName() const { return _unitName; }
+    
+    uint16_t getLeadership() const { return _leadership; }
+    uint16_t getObjectiveControl() const { return _objectiveControl; }
     uint16_t getModelsNum() const { return _modelsNum; }
-    uint16_t getWounds() const { return _wounds; }
+
+    uint16_t getMove() const { return _move; }
     uint16_t getToughness() const { return _toughness; }
+    uint16_t getSave() const { return _save; }
+    uint16_t getWounds() const { return _wounds; }
+
+    uint16_t getCost() const { return _cost; }
 
 protected:
-    std::string _unitName;
+    const std::string _unitName;
     // std::string image;
+
+    // fields related to unit
+    const uint16_t _leadership;
+    const uint16_t _objectiveControl;
+    const uint16_t _modelsNum;
+
+    // fields related to model
     const uint16_t _move;
     const uint16_t _toughness;
     const uint16_t _save;
     const uint16_t _wounds;
-    const uint16_t _leadership;
-    const uint16_t _objectiveControl;
-
-    // fields related to unit
-    const uint16_t _modelsNum;
-    const uint16_t _cost;
     
+    // shared responsibility
+    const uint16_t _cost;
 };

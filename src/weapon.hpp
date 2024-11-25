@@ -4,7 +4,15 @@
 #include <cstdint>
 
 enum class WeaponType {
-    Pistol
+    Pistol,
+    Rapid_Fire,
+    Assault,
+    Heavy,
+    Grenades,
+    Flame_Weapons,
+    Blast_Weapons,
+    Ordnance,
+    Lexicanum
 };
 
 struct Weapon {
