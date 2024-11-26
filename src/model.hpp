@@ -15,7 +15,9 @@ public:
     const Weapon* getWeapon(std::string& weaponName) const;
     Coords getCoords() const { return coords; }
 
-    bool isDead();
+    bool isDead() const;
+
+    void takeDamage(uint16_t& damage);
     
 private:
     Coords coords;

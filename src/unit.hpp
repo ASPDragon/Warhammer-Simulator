@@ -14,6 +14,8 @@ public:
     Datasheet& getDatasheet() const { return _datasheet; }
     int attack(const Unit& enemyUnit, const Weapon& currentWeapon) const;
     bool isAlive() const;
+
+    void casualtyHandling();
     
 private:
     Datasheet& _datasheet;

@@ -4,6 +4,9 @@
 #include "dice.hpp"
 #include "weapon.hpp"
 
+#include <utility>
+#include <algorithm>
+
 Unit::Unit(Datasheet& datasheet)
 : _datasheet{datasheet} {}
 
@@ -41,5 +44,11 @@ int Unit::attack(const Unit& enemyUnit, const Weapon& currentWeapon) const {
 }
 
 bool Unit::isAlive() const  { 
-    return _datasheet.getWounds() > 0;
+    return !unit.empty();
+}
+
+void Unit::casualtyHandling() {
+    unit.erase(std::remove_if(std::begin(unit), std::end(unit),
+                [](const Model& m) { return m.isDead(); }),
+                unit.end());
 }

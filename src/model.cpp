@@ -18,6 +18,15 @@ const Weapon* Model::getWeapon(std::string& weaponName) const {
     return nullptr;
 }
 
-bool Model::isDead() {
+bool Model::isDead() const {
     return this->wounds == 0;
+}
+
+void Model::takeDamage(uint16_t& damage) {
+    if (this->isDead()) return;
+
+    if (this->wounds >= damage)
+        this->wounds -= damage;
+    else 
+        this->wounds = 0;
 }
