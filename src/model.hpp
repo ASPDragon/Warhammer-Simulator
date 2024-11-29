@@ -4,6 +4,7 @@
 #include <string>
 #include <cstdint>
 #include "coords.hpp"
+#include "optional_ref.hpp"
 
 class Weapon;
 class Datasheet;
@@ -12,7 +13,7 @@ class Model {
 public:
     Model(const Datasheet& datasheet);
 
-    const Weapon* getWeapon(std::string& weaponName) const;
+    qtils::OptionalRef<const Weapon> getWeapon(std::string& weaponName) const;
     Coords getCoords() const { return coords; }
 
     bool isDead() const;
