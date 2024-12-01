@@ -4,7 +4,6 @@
 #include "dice.hpp"
 #include "weapon.hpp"
 
-#include <utility>
 #include <algorithm>
 
 Unit::Unit(Datasheet& datasheet)
@@ -41,6 +40,42 @@ int Unit::attack(const Unit& enemyUnit, const Weapon& currentWeapon) const {
     }
 
     return wounds;
+}
+
+// bool Unit::isCoherent() const {
+//     size_t modelsWithNeighbors = 0;
+//     for (const auto& model : unit) {
+//         size_t numberOfNeighbors = 0;
+//         for (const auto& modelToCheck : unit) {
+//             if (model.getCoords().calculateDistance(modelToCheck.getCoords()) <= 1.0)
+//             numberOfNeighbors++;
+//         }
+
+//         if ((this->_datasheet.getModelsNum() < 6 && numberOfNeighbors >= 1) || (this->_datasheet.getModelsNum() >= 6 && numberOfNeighbors >= 2))
+//             modelsWithNeighbors++;
+//     }
+
+//     if (modelsWithNeighbors == unit.size())
+//         return true;
+//     return false;
+// }
+
+bool Unit::isCoherent() const {
+    double coherentDistance = 1.0;
+    auto it = unit.begin() + 1;
+    for (const auto& model : unit) {
+        bool hasNeighbor = false;
+
+        for ( ; it != std::end(unit); ++it) {
+            if (model.getCoords().calculateDistance(it->getCoords()) <= coherentDistance) {
+                hasNeighbor = true;
+                break;
+            }
+        }
+
+        if (hasNeighbor == false) return false;
+    }
+    return true;
 }
 
 bool Unit::isAlive() const  { 

@@ -1,0 +1,27 @@
+
+#include <string>
+#include <cstdint>
+
+#include "../weapon.hpp"
+
+enum class WeaponType {
+    Pistol,
+    Rapid_Fire,
+    Assault,
+    Heavy,
+    Grenades,
+    Flame_Weapons,
+    Blast_Weapons,
+    Ordnance,
+    Lexicanum
+};
+
+struct Weapon {
+    std::string name;
+    uint16_t attacks;
+    enum { Melee, Ranged };
+    uint16_t skill;
+    uint16_t strength;
+    uint16_t armourPenetration;
+    uint16_t damage;
+};

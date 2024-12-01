@@ -10,18 +10,18 @@ public:
               const uint16_t save, const uint16_t wounds, const uint16_t leadership,
               const uint16_t objectiveControl, const uint16_t modelsNum, const uint16_t cost);
 
-    std::string_view getUnitName() const { return _unitName; }
+    virtual std::string_view getUnitName() const { return _unitName; }
     
-    uint16_t getLeadership() const { return _leadership; }
-    uint16_t getObjectiveControl() const { return _objectiveControl; }
-    uint16_t getModelsNum() const { return _modelsNum; }
+    virtual uint16_t getLeadership() const { return _leadership; }
+    virtual uint16_t getObjectiveControl() const { return _objectiveControl; }
+    virtual uint16_t getModelsNum() const { return _modelsNum; }
 
-    uint16_t getMove() const { return _move; }
-    uint16_t getToughness() const { return _toughness; }
-    uint16_t getSave() const { return _save; }
-    uint16_t getWounds() const { return _wounds; }
-
-    uint16_t getCost() const { return _cost; }
+    virtual uint16_t getMove() const { return _move; }
+    virtual uint16_t getToughness() const { return _toughness; }
+    virtual uint16_t getSave() const { return _save; }
+    virtual uint16_t getWounds() const { return _wounds; }
+ 
+    virtual uint16_t getCost() const { return _cost; }
 
 protected:
     const std::string _unitName;

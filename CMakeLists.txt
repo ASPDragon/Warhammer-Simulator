@@ -12,6 +12,8 @@ find_package(GTest REQUIRED)
 add_compile_options("-v")
 
 set(PROJECT_SRC
+    src/tests/model_mock.hpp
+    src/tests/datasheet_mock.hpp
     src/battle_round.hpp
     src/coords.hpp
     src/datasheet.hpp

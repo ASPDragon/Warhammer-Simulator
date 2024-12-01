@@ -10,7 +10,7 @@
 Model::Model(const Datasheet& datasheet)
 : wounds{ datasheet.getWounds() } {}
 
-qtils::OptionalRef<const Weapon> Model::getWeapon(std::string& weaponName) const {
+qtils::OptionalRef<const Weapon> Model::getWeapon(const std::string& weaponName) const {
     auto weapon = std::find_if(std::begin(weapons), std::end(weapons), 
                                [&weaponName](const Weapon& w) { 
                                    return weaponName == w.name; 

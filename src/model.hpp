@@ -13,12 +13,12 @@ class Model {
 public:
     Model(const Datasheet& datasheet);
 
-    qtils::OptionalRef<const Weapon> getWeapon(std::string& weaponName) const;
-    Coords getCoords() const { return coords; }
+    virtual qtils::OptionalRef<const Weapon> getWeapon(const std::string& weaponName) const;
+    virtual Coords getCoords() const { return coords; }
 
-    bool isDead() const;
+    virtual bool isDead() const;
 
-    void takeDamage(uint16_t& damage);
+    virtual void takeDamage(uint16_t& damage);
     
 private:
     Coords coords;
