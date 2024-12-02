@@ -1,10 +1,17 @@
+/**
+* Copyright Sergei Avdoshkin aka ASPDragon
+* All Rights Reserved
+* Warhammer-Simulator
+*/
+
 #include "unit.hpp"
+
+#include <algorithm>
+
 #include "datasheet.hpp"
 #include "model.hpp"
 #include "dice.hpp"
 #include "weapon.hpp"
-
-#include <algorithm>
 
 Unit::Unit(Datasheet& datasheet)
 : _datasheet{datasheet} {}

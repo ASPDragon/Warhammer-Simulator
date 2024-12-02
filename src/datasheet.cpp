@@ -1,3 +1,9 @@
+/**
+* Copyright Sergei Avdoshkin aka ASPDragon
+* All Rights Reserved
+* Warhammer-Simulator
+*/
+
 #include "datasheet.hpp"
 
 Datasheet::Datasheet(const std::string_view unitName, const uint16_t move, const uint16_t toughness,

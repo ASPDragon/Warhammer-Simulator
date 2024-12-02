@@ -1,3 +1,9 @@
+/**
+* Copyright Sergei Avdoshkin aka ASPDragon
+* All Rights Reserved
+* Warhammer-Simulator
+*/
+
 #include "fight_phase.hpp"
 #include "player.hpp"
 #include "unit.hpp"
