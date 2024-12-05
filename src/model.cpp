@@ -14,20 +14,20 @@
 #include "weapon.hpp"
 
 Model::Model(const Datasheet& datasheet)
-: wounds{ datasheet.getWounds() } {}
+: move { datasheet._move }, toughness { datasheet._toughness }, save { datasheet._save }, wounds{ datasheet._wounds } {}
 
-qtils::OptionalRef<const Weapon> Model::getWeapon(const std::string& weaponName) const {
-    auto weapon = std::find_if(std::begin(weapons), std::end(weapons), 
-                               [&weaponName](const Weapon& w) { 
-                                   return weaponName == w.name; 
-                               });
+// qtils::OptionalRef<const Weapon> Model::getWeapon(const std::string& weaponName) const {
+//     auto weapon = std::find_if(std::begin(weapons), std::end(weapons), 
+//                                [&weaponName](const Weapon& w) { 
+//                                    return weaponName == w.name; 
+//                                });
     
-    if (weapon != std::end(weapons)) {
-        return qtils::OptionalRef<const Weapon>(*weapon);
-    }
+//     if (weapon != std::end(weapons)) {
+//         return qtils::OptionalRef<const Weapon>(*weapon);
+//     }
     
-    return std::nullopt;
-}
+//     return std::nullopt;
+// }
 
 
 bool Model::isDead() const {

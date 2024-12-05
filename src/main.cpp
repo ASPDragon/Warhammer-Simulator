@@ -4,10 +4,13 @@
 * Warhammer-Simulator
 */
 
-#include <iostream>
-#include <memory>
+// #include <iostream>
+// #include <memory>
 #include "datasheet.hpp"
 
+#include "tests/unit_tests_unit.hpp"
+
 int main() {
-    return 0;
+    testing::InitGoogleTest();
+    return RUN_ALL_TESTS();
 }
