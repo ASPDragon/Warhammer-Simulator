@@ -11,8 +11,7 @@
 #include <cstdint>
 
 struct Datasheet {
-public:
-    Datasheet(const std::string_view unitName, const uint16_t move, const uint16_t toughness,
+    Datasheet(const std::string_view unitName, const uint16_t baseDiameter, const uint16_t move, const uint16_t toughness,
               const uint16_t save, const uint16_t wounds, const uint16_t leadership,
               const uint16_t objectiveControl, const uint16_t modelsNum, const uint16_t cost);
 
@@ -25,6 +24,7 @@ public:
     const uint16_t _modelsNum;
 
     // fields related to model
+    const uint16_t _baseDiameter;
     const uint16_t _move;
     const uint16_t _toughness;
     const uint16_t _save;

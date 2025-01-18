@@ -8,14 +8,21 @@
 
 #include <vector>
 
-class Player;
+// class Player;
 class Unit;
 class Model;
+struct Vector;
 
 class FightPhase {
 public:
-    FightPhase();
-    void pileIn(const Unit& unit);
+    // FightPhase();
+    // void pileIn(const Unit& currentUnit, const std::pair<size_t, Coords>& Model, const std::vector<Unit>& enemyUnits);
+    bool pileIn(const Unit& currentUnit, const std::vector<std::pair<size_t, Vector>>& destination, const std::vector<Unit>& enemyUnits, const float maximumDistance) const;
+
+    bool isWithinEngagementRange(const Model& model, const std::vector<Unit>& enemyUnits, double range) const;
+
+    const Model* findClosestEnemy(const Model& model, const std::vector<Unit>& enemyUnits) const;
+
     size_t calculateAttacks(const Unit& unit) const;
 
 protected:
@@ -23,5 +30,5 @@ protected:
     bool canFight(const Unit& unit) const;
     
 private:
-    std::vector<Player> players;
+    // std::vector<Player> players;
 };

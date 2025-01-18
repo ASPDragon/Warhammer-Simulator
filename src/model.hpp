@@ -9,7 +9,7 @@
 #include <vector>
 #include <string>
 #include <cstdint>
-#include "coords.hpp"
+#include "vector.hpp"
 #include "optional_ref.hpp"
 
 class Weapon;
@@ -25,7 +25,8 @@ struct Model {
 
     virtual void takeDamage(uint16_t& damage);
     
-    Coords coords;
+    Vector coords;
+    uint16_t baseRadius;
     uint16_t move;
     uint16_t toughness;
     uint16_t save;

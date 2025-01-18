@@ -14,7 +14,8 @@
 #include "weapon.hpp"
 
 Model::Model(const Datasheet& datasheet)
-: move { datasheet._move }, toughness { datasheet._toughness }, save { datasheet._save }, wounds{ datasheet._wounds } {}
+: baseRadius{ static_cast<uint16_t>(datasheet._baseDiameter / 2)}, move { datasheet._move }, toughness { datasheet._toughness },
+    save { datasheet._save }, wounds{ datasheet._wounds } {}
 
 // qtils::OptionalRef<const Weapon> Model::getWeapon(const std::string& weaponName) const {
 //     auto weapon = std::find_if(std::begin(weapons), std::end(weapons), 

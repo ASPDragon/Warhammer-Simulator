@@ -6,15 +6,21 @@
 
 #pragma once
 
+
 #include <cmath>
 
 struct Vector {
     // Coords() = default;
     // Coords(double x, double y);
 
-    double calculateDistance(const Coords& rhs) const {
-        return std::sqrt(pow(rhs.x - this->x, 2) + pow(rhs.y - this->y, 2));
-    }
+    double calculateDistance(const Vector& rhs) const;
+
+    const Vector operator-(const Vector& vector) const;
+    Vector operator*(float scalar) const;
+
+    float length() const;
+
+    Vector normalized() const;
 
     float x;
     float y;

@@ -1,18 +1,17 @@
 #include <gtest/gtest.h>
-#include "../coords.hpp"
 #include "../unit.hpp"
 #include "../model.hpp"
 #include "../datasheet.hpp"
 
 TEST(UnitTest, EmptyUnit) {
-    Datasheet datasheet("Terminator Assault Squad", 5, 5, 2, 3, 6, 1, 0, 0);
+    Datasheet datasheet("Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 0, 0);
     Unit unit(datasheet);
     
     ASSERT_TRUE(unit.isCoherent()); // Define: Empty unit is trivially coherent
 }
 
 TEST(UnitTest, SingleModelUnit) {
-    Datasheet datasheet("Terminator Assault Squad", 5, 5, 2, 3, 6, 1, 1, 36);
+    Datasheet datasheet("Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 1, 36);
     Unit unit(datasheet);
     unit.unit[0].coords = {0, 0};
 
@@ -20,7 +19,7 @@ TEST(UnitTest, SingleModelUnit) {
 }
 
 TEST(UnitTest, AllModelsCoherent) {
-    Datasheet datasheet("Terminator Assault Squad", 5, 5, 2, 3, 6, 1, 3, 108);
+    Datasheet datasheet("Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 3, 108);
     Unit unit(datasheet);
     unit.unit[0].coords = {0.0, 0.0};
     unit.unit[1].coords = {0.5, 0.5};
@@ -30,7 +29,7 @@ TEST(UnitTest, AllModelsCoherent) {
 }
 
 TEST(UnitTest, SomeModelsIncoherent) {
-    Datasheet datasheet("Terminator Assault Squad", 5, 5, 2, 3, 6, 1, 3, 108);
+    Datasheet datasheet("Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 3, 108);
     Unit unit(datasheet);
     unit.unit[0].coords = {0.0, 0.0};
     unit.unit[1].coords = {2.0, 2.0};
@@ -40,7 +39,7 @@ TEST(UnitTest, SomeModelsIncoherent) {
 }
 
 TEST(UnitTest, BoundaryCase) {
-    Datasheet datasheet("Terminator Assault Squad", 5, 5, 2, 3, 6, 1, 2, 72);
+    Datasheet datasheet("Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 2, 72);
     Unit unit(datasheet);
     unit.unit[0].coords = {0.0, 0.0};
     unit.unit[1].coords = {1.0, 0.0}; // Exactly at coherentDistance

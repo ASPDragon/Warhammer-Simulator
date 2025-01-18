@@ -14,14 +14,16 @@ add_compile_options("-v")
 set(PROJECT_SRC
     src/tests/model_mock.hpp
     src/tests/unit_tests_unit.hpp
+    src/tests/unit_tests_fight_phase.hpp
     src/battle_round.hpp
-    src/coords.hpp
+    src/vector.hpp
     src/datasheet.hpp
     src/dice.hpp
     src/fight_phase.hpp
     src/model.hpp
     src/player.hpp
     src/unit.hpp
+    src/utils.hpp
     src/weapon.hpp
     src/main.cpp
     src/battle_round.cpp
@@ -31,7 +33,9 @@ set(PROJECT_SRC
     src/model.cpp
     src/player.cpp
     src/unit.cpp
+    src/utils.cpp
     src/weapon.cpp
+    src/vector.cpp
 )
 
 add_executable(${PROJECT_NAME} ${PROJECT_SRC})
