@@ -113,3 +113,29 @@ TEST(FightPhaseTest, PileIn_InvalidDestinationIndex_ReturnsFalse) {
 
     EXPECT_FALSE(fightPhase.pileIn(currentUnit, destination, enemyUnits, 4.0f));
 }
+
+TEST(FightPhaseTest, PileIn_MoveAtMaximumDistance_ReturnsTrue) {
+    FightPhase fightPhase;
+    Unit currentUnit = createTestUnit();
+    std::vector<Unit> enemyUnits = createEnemyUnits();
+    std::vector<std::pair<size_t, Vector>> destination = {
+        {0, Vector(4.0, 0.0)}, // Exactly at max distance
+        {1, Vector(4.0, 0.5)},
+        {2, Vector(3.5, 1.0)}
+    };
+
+    EXPECT_TRUE(fightPhase.pileIn(currentUnit, destination, enemyUnits, 4.0f));
+}
+
+TEST(FightPhaseTest, PileIn_NoEnemies_ReturnsFalse) {
+    FightPhase fightPhase;
+    Unit currentUnit = createTestUnit();
+    std::vector<Unit> enemyUnits; // No enemies
+    std::vector<std::pair<size_t, Vector>> destination = {
+        {0, Vector(0.5, 0.5)},
+        {1, Vector(1.0, 1.0)},
+        {2, Vector(1.5, 1.0)}
+    };
+
+    EXPECT_FALSE(fightPhase.pileIn(currentUnit, destination, enemyUnits, 4.0f));
+}

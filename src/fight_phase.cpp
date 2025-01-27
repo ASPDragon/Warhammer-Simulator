@@ -18,32 +18,31 @@
 bool FightPhase::pileIn(const Unit& currentUnit, const std::vector<std::pair<size_t, Vector>>& destination,
     const std::vector<Unit>& enemyUnits, const float maximumDistance) const {
     for (size_t i = 0; i < currentUnit.unit.size(); ++i) {
+        size_t idx = i;
         if (destination[i].first != i) {
-            return false;  // Ensure destination aligns with the current model
+            idx = destination[i].first; // Ensure destination aligns with the current model
         }
 
         auto currentModel = currentUnit.unit[i];
         if (currentModel.coords.calculateDistance(destination[i].second) > maximumDistance)
             return false;
 
-        auto closestEnemy = findClosestEnemy(currentUnit.unit[i], enemyUnits);
-        if (closestEnemy)
-        {
-            float oldCoordsToDestinationDistance = currentUnit.unit[i].coords.calculateDistance(closestEnemy->coords);
+        auto closestEnemy = findClosestEnemy(currentUnit.unit[idx], enemyUnits);
+        if (!closestEnemy) return false;
+        float oldCoordsToDestinationDistance = currentUnit.unit[idx].coords.calculateDistance(closestEnemy->coords);
 
-            float distanceBetweenBases = utils::distanceBetweenBases(currentUnit.unit[i].coords, closestEnemy->coords,
-                currentUnit.unit[i].baseRadius, closestEnemy->baseRadius);
-            if (distanceBetweenBases <= maximumDistance) {
-                auto baseToBaseVector = closestEnemy->coords - currentModel.coords;
-                auto newCoords = baseToBaseVector.normalized() * (baseToBaseVector.length() - currentModel.baseRadius - closestEnemy->baseRadius);
-                float newCoordsToModelDistance = newCoords.calculateDistance(currentModel.coords);
+        float distanceBetweenBases = utils::distanceBetweenBases(currentUnit.unit[idx].coords, closestEnemy->coords,
+            currentUnit.unit[idx].baseRadius, closestEnemy->baseRadius);
+        if (distanceBetweenBases <= maximumDistance) {
+            auto baseToBaseVector = closestEnemy->coords - currentModel.coords;
+            auto newCoords = baseToBaseVector.normalized() * (baseToBaseVector.length() - currentModel.baseRadius - closestEnemy->baseRadius);
+            float newCoordsToModelDistance = newCoords.calculateDistance(currentModel.coords);
 
-                if (newCoordsToModelDistance <= maximumDistance) {
-                    auto finalPositionToEnemyDistance = destination[i].second.calculateDistance(closestEnemy->coords);
-                    auto newCoordsToDestinationDistance = newCoords.calculateDistance(closestEnemy->coords);
-                    if (!utils::nearlyEqual(finalPositionToEnemyDistance, newCoordsToDestinationDistance)) {
-                        return false;
-                    }
+            if (newCoordsToModelDistance <= maximumDistance) {
+                auto finalPositionToEnemyDistance = destination[i].second.calculateDistance(closestEnemy->coords);
+                auto newCoordsToDestinationDistance = newCoords.calculateDistance(closestEnemy->coords);
+                if (!utils::nearlyEqual(finalPositionToEnemyDistance, newCoordsToDestinationDistance)) {
+                    return false;
                 }
             }
         }
