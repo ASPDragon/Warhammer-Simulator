@@ -17,11 +17,10 @@
 
 bool FightPhase::pileIn(const Unit& currentUnit, const std::vector<std::pair<size_t, Vector>>& destination,
     const std::vector<Unit>& enemyUnits, const float maximumDistance) const {
+    if (destination.size() != currentUnit.unit.size()) return false;
+    
     for (size_t i = 0; i < currentUnit.unit.size(); ++i) {
-        size_t idx = i;
-        if (destination[i].first != i) {
-            idx = destination[i].first; // Ensure destination aligns with the current model
-        }
+        size_t idx = destination[i].first; // Ensure destination aligns with the current model
 
         auto currentModel = currentUnit.unit[i];
         if (currentModel.coords.calculateDistance(destination[i].second) > maximumDistance)
