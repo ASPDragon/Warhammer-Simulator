@@ -16,7 +16,7 @@
 Unit::Unit(Datasheet& datasheet)
 : _datasheet{datasheet} {
     for (size_t num = 0; num < _datasheet._modelsNum; ++num)
-        unit.push_back(_datasheet);
+        models.push_back(_datasheet);
 }
 
 int Unit::attack(const Unit& enemyUnit, const Weapon& currentWeapon) const {
@@ -53,14 +53,14 @@ int Unit::attack(const Unit& enemyUnit, const Weapon& currentWeapon) const {
 }
 
 bool Unit::isCoherent() const {
-    if (unit.empty() || unit.size() == 1) return  true;
+    if (models.empty() || models.size() == 1) return  true;
 
     double coherentDistance = 1.0;
 
-    for (auto current = unit.begin(); current != std::prev(unit.end()); ++current) {
+    for (auto current = models.begin(); current != std::prev(models.end()); ++current) {
         bool hasNeighbor = false;
 
-        for (auto other = std::next(current); other != unit.end(); ++other) {
+        for (auto other = std::next(current); other != models.end(); ++other) {
             if (current->coords.calculateDistance(other->coords) <= coherentDistance) {
                 hasNeighbor = true;
                 break;
@@ -73,11 +73,11 @@ bool Unit::isCoherent() const {
 }
 
 bool Unit::isAlive() const  { 
-    return !unit.empty();
+    return !models.empty();
 }
 
 void Unit::casualtyHandling() {
-    unit.erase(std::remove_if(std::begin(unit), std::end(unit),
+    models.erase(std::remove_if(std::begin(models), std::end(models),
                 [](const Model& m) { return m.isDead(); }),
-                unit.end());
+                models.end());
 }

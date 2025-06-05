@@ -25,6 +25,6 @@ struct Unit {
     void casualtyHandling();
 
     Datasheet& _datasheet;
-    std::vector<Model> unit;
+    std::vector<Model> models;
     bool hasCharged = false;
 };

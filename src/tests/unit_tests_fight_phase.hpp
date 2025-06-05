@@ -8,17 +8,17 @@
 Unit createTestUnit() {
     Datasheet datasheet("Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 3, 108);
     Unit unit(datasheet);
-    unit.unit[0].coords = {0.0, 0.0};
-    unit.unit[1].coords = {0.5, 0.5};
-    unit.unit[2].coords = {1.0, 0.5};
+    unit.models[0].coords = {0.0, 0.0};
+    unit.models[1].coords = {0.5, 0.5};
+    unit.models[2].coords = {1.0, 0.5};
     return unit;
 }
 
 Unit createEnemyUnit(Datasheet& datasheet, const std::vector<Vector>& coordinates) {
     Unit unit(datasheet);
     
-    for (size_t i = 0; i < unit.unit.size() && i < coordinates.size(); ++i) {
-        unit.unit[i].coords = coordinates[i];
+    for (size_t i = 0; i < unit.models.size() && i < coordinates.size(); ++i) {
+        unit.models[i].coords = coordinates[i];
     }
     return unit;
 }
