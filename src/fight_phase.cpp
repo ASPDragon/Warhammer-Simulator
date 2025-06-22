@@ -5,6 +5,8 @@
 */
 
 #include "fight_phase.hpp"
+
+#include "datasheet.hpp"
 #include "player.hpp"
 #include "unit.hpp"
 #include "model.hpp"
@@ -85,4 +87,9 @@ bool FightPhase::canFight(const Unit& unit) const {
             return std::ranges::any_of(m.weapons, &Weapon::isMelee);
         });
     return unit.isAlive() && hasMelee;
+}
+
+void FightPhase::fight(const Unit& currentUnit, const std::vector<std::pair<size_t, Weapon&>> selectedWeapons, const Unit& enemyUnit, const uint16_t maximumDistance)
+{
+    if (!canFight(currentUnit)) throw std::logic_error{std::format("Unit #{} can't fight", currentUnit._datasheet._unitId)};
 }
