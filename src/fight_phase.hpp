@@ -7,7 +7,7 @@
 #pragma once
 
 #include <cstdint>
-#include <vector>
+#include <span>
 
 // class Player;
 class Unit;
@@ -18,14 +18,15 @@ struct Weapon;
 class FightPhase {
 public:
     // FightPhase();
-    bool pileIn(const Unit& currentUnit, const std::vector<std::pair<size_t, Vector>>& destination, const std::vector<Unit>& enemyUnits, const float maximumDistance) const;
-    bool isWithinEngagementRange(const Model& model, const std::vector<Unit>& enemyUnits, double range) const;
+    bool pileIn(const Unit& currentUnit, std::span<std::pair<size_t, Vector>> destination, const std::span<Unit> enemyUnits, float maximumDistance) const;
+    bool isWithinEngagementRange(const Model& model, std::span<Unit> enemyUnits, double range) const;
+    bool validateFight() const;
 
-    const Model* findClosestEnemy(const Model& model, const std::vector<Unit>& enemyUnits) const;
+    const Model* findClosestEnemy(const Model& model, const std::span<Unit> enemyUnits) const;
 
     size_t calculateAttacks(const Unit& unit) const;
 
-    void fight(const Unit& currentUnit, const std::vector<std::pair<size_t, Weapon&>> selectedWeapons, const Unit& enemyUnit, const uint16_t maximumDistance);
+    void fight(const Unit& currentUnit, std::span<std::pair<size_t, Weapon&>> selectedWeapons, const Unit& enemyUnit, uint16_t maximumDistance);
 
 protected:
     bool hasCharged(const Unit& unit) const;

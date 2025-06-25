@@ -18,8 +18,8 @@
 #include <algorithm>
 // #include <exception>
 
-bool FightPhase::pileIn(const Unit& currentUnit, const std::vector<std::pair<size_t, Vector>>& destination,
-    const std::vector<Unit>& enemyUnits, const float maximumDistance) const {
+bool FightPhase::pileIn(const Unit& currentUnit, const std::span<std::pair<size_t, Vector>> destination,
+    const std::span<Unit> enemyUnits, const float maximumDistance) const {
     if (destination.size() != currentUnit.models.size()) return false;
     
     for (size_t i = 0; i < currentUnit.models.size(); ++i) {
@@ -55,7 +55,7 @@ bool FightPhase::pileIn(const Unit& currentUnit, const std::vector<std::pair<siz
     return true;
 }
 
-bool FightPhase::isWithinEngagementRange(const Model& model, const std::vector<Unit>& enemyUnits, double range) const {
+bool FightPhase::isWithinEngagementRange(const Model& model, const std::span<Unit> enemyUnits, double range) const {
     for (const auto& enemyUnit : enemyUnits) {
         for (const auto& enemyModel : enemyUnit.models) {
             if (model.coords.calculateDistance(enemyModel.coords) <= range)
@@ -66,7 +66,7 @@ bool FightPhase::isWithinEngagementRange(const Model& model, const std::vector<U
     return false;
 }
 
-const Model* FightPhase::findClosestEnemy(const Model& model, const std::vector<Unit>& enemyUnits) const {
+const Model* FightPhase::findClosestEnemy(const Model& model, const std::span<Unit> enemyUnits) const {
     double minimalDistance = std::numeric_limits<double>::max();
     const Model* nearestEnemyModel = nullptr;
 
@@ -89,7 +89,13 @@ bool FightPhase::canFight(const Unit& unit) const {
     return unit.isAlive() && hasMelee;
 }
 
-void FightPhase::fight(const Unit& currentUnit, const std::vector<std::pair<size_t, Weapon&>> selectedWeapons, const Unit& enemyUnit, const uint16_t maximumDistance)
+void FightPhase::fight(const Unit& currentUnit, const std::span<std::pair<size_t, Weapon&>> selectedWeapons, const Unit& enemyUnit, const uint16_t maximumDistance)
 {
-    if (!canFight(currentUnit)) throw std::logic_error{std::format("Unit #{} can't fight", currentUnit._datasheet._unitId)};
+    if (!canFight(currentUnit) || selectedWeapons.size() != currentUnit.models.size())
+        throw std::logic_error{std::format("Unit #{} can't fight", currentUnit._datasheet._unitId)};
+
+    for (const auto& model : currentUnit.models)
+    {
+
+    }
 }
