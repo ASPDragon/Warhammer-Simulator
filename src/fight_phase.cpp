@@ -66,6 +66,11 @@ bool FightPhase::isWithinEngagementRange(const Model& model, const std::span<Uni
     return false;
 }
 
+bool FightPhase::validateFight() const
+{
+    if (!canFight()) return false;
+}
+
 const Model* FightPhase::findClosestEnemy(const Model& model, const std::span<Unit> enemyUnits) const {
     double minimalDistance = std::numeric_limits<double>::max();
     const Model* nearestEnemyModel = nullptr;

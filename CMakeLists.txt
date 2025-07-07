@@ -36,6 +36,10 @@ set(PROJECT_SRC
     src/utils.cpp
     src/weapon.cpp
     src/vector.cpp
+    src/action.hpp
+        src/game_state.hpp
+        src/pile_in.cpp
+        src/pile_in.hpp
 )
 
 add_executable(${PROJECT_NAME} ${PROJECT_SRC})
