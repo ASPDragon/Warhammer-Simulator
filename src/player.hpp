@@ -4,11 +4,12 @@
 * Warhammer-Simulator
 */
 
+#include <cstdint>
 #include <vector>
 
-class Unit;
+struct Unit;
 
 class Player {
-private:
-    std::vector<Unit> army;
+    uint32_t id;
+    bool operator==(const Player&) const;
 };

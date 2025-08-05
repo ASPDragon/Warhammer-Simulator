@@ -14,7 +14,7 @@ struct Datasheet {
     Datasheet(uint16_t unitId, std::string_view unitName, uint16_t baseDiameter, uint16_t move, uint16_t toughness,
               uint16_t save, uint16_t wounds, uint16_t leadership, uint16_t objectiveControl, uint16_t modelsNum, uint16_t cost);
 
-    const uint16_t _unitId;
+    const uint32_t _unitId;
     const std::string _unitName;
     // std::string image;
 

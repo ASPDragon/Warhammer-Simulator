@@ -26,6 +26,7 @@ struct Model {
     virtual void takeDamage(uint16_t& damage);
     
     Vector coords;
+    uint32_t id;
     uint16_t baseRadius;
     uint16_t move;
     uint16_t toughness;
