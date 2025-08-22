@@ -13,21 +13,21 @@ bool PileInAction::validate() const{
     if (destinations.size() != unit.models.size()) return false;
 
     for (size_t i = 0; i < unit.models.size(); ++i) {
-        size_t idx = destinations[i].first; // Ensure destination aligns with the current model
+        size_t idx = destinations[i]; // Ensure destination aligns with the current model
 
         auto currentModel = unit.models[i];
-        if (currentModel.coords.calculateDistance(destinations[i].second) > maximumDistance)
+        if (currentModel.coords.calculateDistance(destinations[i]) > maximumDistance)
             return false;
 
         std::vector<Unit> enemyUnits = {};
 
-        for (auto [key, value] : state.units)
+        for (auto [key, value] : _state.units)
         {
             if (key != player)
                 enemyUnits = value;
         }
 
-        auto closestEnemy = state.findClosestEnemy(unit.models[idx], enemyUnits);
+        auto closestEnemy = _state.findClosestEnemyModel(unit.models[idx], enemyUnits);
         if (!closestEnemy) return false;
         float oldCoordsToDestinationDistance = unit.models[idx].coords.calculateDistance(closestEnemy->coords);
 
@@ -39,7 +39,7 @@ bool PileInAction::validate() const{
             float newCoordsToModelDistance = newCoords.calculateDistance(currentModel.coords);
 
             if (newCoordsToModelDistance <= maximumDistance) {
-                auto finalPositionToEnemyDistance = destinations[i].second.calculateDistance(closestEnemy->coords);
+                auto finalPositionToEnemyDistance = destinations[i].calculateDistance(closestEnemy->coords);
                 auto newCoordsToDestinationDistance = newCoords.calculateDistance(closestEnemy->coords);
                 if (!utils::nearlyEqual(finalPositionToEnemyDistance, newCoordsToDestinationDistance)) {
                     return false;

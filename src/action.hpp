@@ -8,9 +8,12 @@
 
 struct Action
 {
-    virtual bool validate() const = 0;
+    explicit Action(GameState& state);
+    [[nodiscard]] virtual bool validate() const = 0;
     virtual void execute() = 0;
 
+    virtual ~Action() = default;
+
 protected:
-    GameState& state;
+    GameState& _state;
 };

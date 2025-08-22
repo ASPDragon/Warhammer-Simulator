@@ -9,7 +9,7 @@
 
 struct Unit;
 
-class Player {
+struct Player {
     uint32_t id;
     bool operator==(const Player&) const;
 };

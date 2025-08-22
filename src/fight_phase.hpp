@@ -20,7 +20,6 @@ public:
     // FightPhase();
     bool pileIn(const Unit& currentUnit, std::span<std::pair<size_t, Vector>> destination, const std::span<Unit> enemyUnits, float maximumDistance) const;
     bool isWithinEngagementRange(const Model& model, std::span<Unit> enemyUnits, double range) const;
-    bool validateFight() const;
 
     const Model* findClosestEnemy(const Model& model, const std::span<Unit> enemyUnits) const;
 
