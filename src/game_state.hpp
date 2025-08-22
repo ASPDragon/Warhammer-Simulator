@@ -11,6 +11,7 @@
 #include "player.hpp"
 #include "unit.hpp"
 #include "vector.hpp"
+#include "objective.hpp"
 
 struct ClosestModel
 {
