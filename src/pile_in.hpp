@@ -16,6 +16,6 @@ public:
 private:
     Player player;
     Unit unit;
-    std::vector<Vector> destinations;
+    std::vector<std::pair<size_t, Vector>> destinations;
     size_t maximumDistance;
 };

@@ -11,7 +11,7 @@ TEST(UnitTest, EmptyUnit) {
 }
 
 TEST(UnitTest, SingleModelUnit) {
-    Datasheet datasheet("Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 1, 36);
+    Datasheet datasheet(1, "Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 1, 36);
     Unit unit(datasheet);
     unit.models[0].coords = {0, 0};
 
@@ -19,7 +19,7 @@ TEST(UnitTest, SingleModelUnit) {
 }
 
 TEST(UnitTest, AllModelsCoherent) {
-    Datasheet datasheet("Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 3, 108);
+    Datasheet datasheet(1, "Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 3, 108);
     Unit unit(datasheet);
     unit.models[0].coords = {0.0, 0.0};
     unit.models[1].coords = {0.5, 0.5};
@@ -29,7 +29,7 @@ TEST(UnitTest, AllModelsCoherent) {
 }
 
 TEST(UnitTest, SomeModelsIncoherent) {
-    Datasheet datasheet("Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 3, 108);
+    Datasheet datasheet(1, "Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 3, 108);
     Unit unit(datasheet);
     unit.models[0].coords = {0.0, 0.0};
     unit.models[1].coords = {2.0, 2.0};
@@ -39,7 +39,7 @@ TEST(UnitTest, SomeModelsIncoherent) {
 }
 
 TEST(UnitTest, BoundaryCase) {
-    Datasheet datasheet("Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 2, 72);
+    Datasheet datasheet(1, "Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 2, 72);
     Unit unit(datasheet);
     unit.models[0].coords = {0.0, 0.0};
     unit.models[1].coords = {1.0, 0.0}; // Exactly at coherentDistance
