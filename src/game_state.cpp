@@ -26,7 +26,7 @@ std::optional<ClosestModel> GameState::findClosestEnemyModel(uint32_t currentPla
     for (auto& [player, playerUnits] : units) {
         if (player.id == currentPlayer) continue;
         for (auto [unit_idx, unit] : playerUnits | std::views::enumerate) {
-            // option cause they all could be dead
+            // option because they all could be dead
             std::optional<uint32_t> modelId  = findClosestModel(unit, origin);
             if (modelId && (!closest_model || closest_model->position.calculateDistance(origin) > unit.models[*modelId].coords.calculateDistance(origin))) {
                 closest_model = {player.id, unit._datasheet._unitId, *modelId, unit.models[*modelId].coords};

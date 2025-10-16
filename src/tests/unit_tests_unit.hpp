@@ -4,7 +4,7 @@
 #include "../datasheet.hpp"
 
 TEST(UnitTest, EmptyUnit) {
-    Datasheet datasheet("Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 0, 0);
+    Datasheet datasheet(123, "Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 0, 0);
     Unit unit(datasheet);
     
     ASSERT_TRUE(unit.isCoherent()); // Define: Empty unit is trivially coherent

@@ -21,26 +21,26 @@ bool PileInAction::validate() const{
 
         std::vector<Unit> enemyUnits = {};
 
-        for (auto [key, value] : _state.units)
+        for (auto& [key, value] : _state.units)
         {
             if (key != player)
-                enemyUnits = value;
+                enemyUnits = std::move(value);
         }
 
-        auto closestEnemy = _state.findClosestEnemyModel(unit.models[idx].id, enemyUnits);
+        auto closestEnemy = _state.findClosestEnemyModel(unit.models[idx].id, currentModel.coords);
         if (!closestEnemy) return false;
-        float oldCoordsToDestinationDistance = unit.models[idx].coords.calculateDistance(closestEnemy->coords);
+        float oldCoordsToDestinationDistance = unit.models[idx].coords.calculateDistance(closestEnemy.value().position);
 
-        float distanceBetweenBases = utils::distanceBetweenBases(unit.models[idx].coords, closestEnemy->coords,
+        float distanceBetweenBases = utils::distanceBetweenBases(unit.models[idx].coords, closestEnemy.value().position,
             unit.models[idx].baseRadius, closestEnemy->baseRadius);
         if (distanceBetweenBases <= maximumDistance) {
-            auto baseToBaseVector = closestEnemy->coords - currentModel.coords;
+            auto baseToBaseVector = closestEnemy.value().position - currentModel.coords;
             auto newCoords = baseToBaseVector.normalized() * (baseToBaseVector.length() - currentModel.baseRadius - closestEnemy->baseRadius);
             float newCoordsToModelDistance = newCoords.calculateDistance(currentModel.coords);
 
             if (newCoordsToModelDistance <= maximumDistance) {
-                auto finalPositionToEnemyDistance = destinations[i].calculateDistance(closestEnemy->coords);
-                auto newCoordsToDestinationDistance = newCoords.calculateDistance(closestEnemy->coords);
+                auto finalPositionToEnemyDistance = destinations[i].calculateDistance(closestEnemy.value().position);
+                auto newCoordsToDestinationDistance = newCoords.calculateDistance(closestEnemy.value().position);
                 if (!utils::nearlyEqual(finalPositionToEnemyDistance, newCoordsToDestinationDistance)) {
                     return false;
                 }
