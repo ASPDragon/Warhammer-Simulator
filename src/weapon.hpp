@@ -1,18 +1,34 @@
+/**
+* Copyright Sergei Avdoshkin aka ASPDragon
+* All Rights Reserved
+* Warhammer-Simulator
+*/
+
 #pragma once
 
 #include <string>
-#include <optional>
+#include <cstdint>
 
 enum class WeaponType {
-    Pistol
+    Pistol,
+    Rapid_Fire,
+    Assault,
+    Heavy,
+    Grenades,
+    Flame_Weapons,
+    Blast_Weapons,
+    Ordnance,
+    Lexicanum
 };
 
 struct Weapon {
+    bool isMelee() const { return range == 0.0; }
+    bool isRanged() const { return !isMelee(); }
     std::string name;
-    int attacks;
-    enum { Melee, Ranged };
+    float range;
+    uint16_t attacks;
     uint16_t skill;
-    int strength;
-    int armourPenetration;
-    int damage;
+    uint16_t strength;
+    uint16_t armourPenetration;
+    uint16_t damage;
 };

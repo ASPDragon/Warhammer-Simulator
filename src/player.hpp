@@ -1,8 +1,15 @@
+/**
+* Copyright Sergei Avdoshkin aka ASPDragon
+* All Rights Reserved
+* Warhammer-Simulator
+*/
+
+#include <cstdint>
 #include <vector>
 
-class Unit;
+struct Unit;
 
-class Player {
-private:
-    std::vector<Unit> army;
+struct Player {
+    uint32_t id;
+    bool operator==(const Player&) const;
 };
