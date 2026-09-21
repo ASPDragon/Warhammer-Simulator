@@ -43,7 +43,7 @@ std::vector<Unit> createEnemyUnits() {
 }
 
 TEST(FightPhaseTest, PileIn_MoveExceedsMaximumDistance_ReturnsFalse) {
-    FightPhase fightPhase;
+    Fight_Phase fightPhase;
     Unit currentUnit = createTestUnit();
     std::vector<Unit> enemyUnits = createEnemyUnits();
     std::vector<std::pair<size_t, Vector>> destination = {{0, Vector(10, 10)}}; // Too far
@@ -54,7 +54,7 @@ TEST(FightPhaseTest, PileIn_MoveExceedsMaximumDistance_ReturnsFalse) {
 // Test the pile-in functionality with valid movement
 TEST(FightPhaseTest, PileIn_ValidMovementToEnemy_ReturnsTrue) {
     // Create a FightPhase object
-    FightPhase fightPhase;
+    Fight_Phase fightPhase;
 
     // Create a test unit
     Unit testUnit = createTestUnit();
@@ -82,7 +82,7 @@ TEST(FightPhaseTest, PileIn_ValidMovementToEnemy_ReturnsTrue) {
 
 TEST(FightPhaseTest, PileIn_CoherenceMaintained_ReturnsTrue) {
     // Arrange
-    FightPhase fightPhase;
+    Fight_Phase fightPhase;
     Unit currentUnit = createTestUnit(); // Create a test unit with predefined positions
     std::vector<Unit> enemyUnits = createEnemyUnits(); // Create enemy units with predefined positions
 
@@ -104,7 +104,7 @@ TEST(FightPhaseTest, PileIn_CoherenceMaintained_ReturnsTrue) {
 
 
 TEST(FightPhaseTest, PileIn_InvalidDestinationIndex_ReturnsFalse) {
-    FightPhase fightPhase;
+    Fight_Phase fightPhase;
     Unit currentUnit = createTestUnit();  // Mock a unit
     std::vector<Unit> enemyUnits = createEnemyUnits();
     std::vector<std::pair<size_t, Vector>> destination = {
@@ -115,7 +115,7 @@ TEST(FightPhaseTest, PileIn_InvalidDestinationIndex_ReturnsFalse) {
 }
 
 TEST(FightPhaseTest, PileIn_MoveAtMaximumDistance_ReturnsTrue) {
-    FightPhase fightPhase;
+    Fight_Phase fightPhase;
     Unit currentUnit = createTestUnit();
     std::vector<Unit> enemyUnits = createEnemyUnits();
     std::vector<std::pair<size_t, Vector>> destination = {
@@ -128,7 +128,7 @@ TEST(FightPhaseTest, PileIn_MoveAtMaximumDistance_ReturnsTrue) {
 }
 
 TEST(FightPhaseTest, PileIn_NoEnemies_ReturnsFalse) {
-    FightPhase fightPhase;
+    Fight_Phase fightPhase;
     Unit currentUnit = createTestUnit();
     std::vector<Unit> enemyUnits; // No enemies
     std::vector<std::pair<size_t, Vector>> destination = {

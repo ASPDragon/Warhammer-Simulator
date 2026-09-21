@@ -14,7 +14,7 @@
 #include "weapon.hpp"
 
 Model::Model(const Datasheet& datasheet)
-: baseRadius{ static_cast<uint16_t>(datasheet._baseDiameter / 2)}, move { datasheet._move }, toughness { datasheet._toughness },
+: base_radius{ static_cast<uint16_t>(datasheet._base_diameter / 2)}, move { datasheet._move }, toughness { datasheet._toughness },
     save { datasheet._save }, wounds{ datasheet._wounds } {}
 
 // qtils::OptionalRef<const Weapon> Model::getWeapon(const std::string& weaponName) const {
@@ -31,12 +31,12 @@ Model::Model(const Datasheet& datasheet)
 // }
 
 
-bool Model::isDead() const {
+bool Model::is_dead() const {
     return this->wounds == 0;
 }
 
-void Model::takeDamage(uint16_t& damage) {
-    if (this->isDead()) return;
+void Model::take_damage(uint16_t& damage) {
+    if (this->is_dead()) return;
 
     if (this->wounds >= damage)
         this->wounds -= damage;

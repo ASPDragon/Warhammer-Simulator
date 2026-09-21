@@ -22,13 +22,13 @@ enum class WeaponType {
 };
 
 struct Weapon {
-    bool isMelee() const { return range == 0.0; }
-    bool isRanged() const { return !isMelee(); }
+    bool is_melee() const { return range == 0.0; }
+    bool is_ranged() const { return !is_melee(); }
     std::string name;
     float range;
     uint16_t attacks;
     uint16_t skill;
     uint16_t strength;
-    uint16_t armourPenetration;
+    uint16_t armour_penetration;
     uint16_t damage;
 };

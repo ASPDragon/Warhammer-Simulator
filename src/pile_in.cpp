@@ -9,49 +9,82 @@
 #include "vector.hpp"
 #include "unit.hpp"
 
-bool PileInAction::validate() const{
-    if (destinations.size() != unit.models.size()) return false;
+bool Pile_In_Action::validate() const {
+    if (destinations.size() != unit.models.size())
+        return false;
 
-    for (size_t i = 0; i < unit.models.size(); ++i) {
-        size_t idx = destinations[i].first; // Ensure destination aligns with the current model
+    for (size_t model_index = 0; model_index < unit.models.size(); ++model_index) {
+        size_t destination_model_index = destinations[model_index].first;
 
-        auto currentModel = unit.models[i];
-        if (currentModel.coords.calculateDistance(destinations[i].second) > maximumDistance)
-            return false;
+        auto current_model = unit.models[model_index];
 
-        std::vector<Unit> enemyUnits = {};
-
-        for (auto& [key, value] : _state.units)
+        if (current_model.coords.calculate_distance(destinations[model_index].second) >
+            maximum_distance)
         {
-            if (key != player)
-                enemyUnits = std::move(value);
+            return false;
         }
 
-        auto closestEnemy = _state.findClosestEnemyModel(unit.models[idx].id, currentModel.coords);
-        if (!closestEnemy) return false;
-        float oldCoordsToDestinationDistance = unit.models[idx].coords.calculateDistance(closestEnemy.value().position);
+        std::vector<Unit> enemy_units = {};
 
-        float distanceBetweenBases = utils::distanceBetweenBases(unit.models[idx].coords, closestEnemy.value().position,
-            unit.models[idx].baseRadius, closestEnemy->baseRadius);
-        if (distanceBetweenBases <= maximumDistance) {
-            auto baseToBaseVector = closestEnemy.value().position - currentModel.coords;
-            auto newCoords = baseToBaseVector.normalized() * (baseToBaseVector.length() - currentModel.baseRadius - closestEnemy->baseRadius);
-            float newCoordsToModelDistance = newCoords.calculateDistance(currentModel.coords);
+        for (auto& [player_key, player_units] : _state.units) {
+            if (player_key != player)
+                enemy_units = std::move(player_units);
+        }
 
-            if (newCoordsToModelDistance <= maximumDistance) {
-                auto finalPositionToEnemyDistance = destinations[i].calculateDistance(closestEnemy.value().position);
-                auto newCoordsToDestinationDistance = newCoords.calculateDistance(closestEnemy.value().position);
-                if (!utils::nearlyEqual(finalPositionToEnemyDistance, newCoordsToDestinationDistance)) {
+        auto closest_enemy =
+            _state.find_closest_enemy_model(unit.models[destination_model_index].id,
+                                         current_model.coords);
+
+        if (!closest_enemy)
+            return false;
+
+        float old_coords_to_destination_distance =
+            unit.models[destination_model_index]
+                .coords.calculate_distance(closest_enemy.value().position);
+
+        float distance_between_bases =
+            utils::distance_between_bases(
+                unit.models[destination_model_index].coords,
+                closest_enemy.value().position,
+                unit.models[destination_model_index].base_radius,
+                _state.units[closest_model.unit_id].models[model_id].base_radius);
+
+        if (distance_between_bases <= maximum_distance) {
+            auto base_to_base_vector =
+                closest_enemy.value().position - current_model.coords;
+
+            auto new_coords =
+                base_to_base_vector.normalized() *
+                (base_to_base_vector.length() -
+                 current_model.base_radius -
+                 _state.units[closest_model.unitId].models[model_id].baseRadius);
+
+            float new_coords_to_model_distance =
+                new_coords.calculate_distance(current_model.coords);
+
+            if (new_coords_to_model_distance <= maximum_distance) {
+                auto final_position_to_enemy_distance =
+                    destinations[model_index]
+                        .second.calculate_distance(closest_enemy.value().position);
+
+                auto new_coords_to_destination_distance =
+                    new_coords.calculate_distance(closest_enemy.value().position);
+
+                if (!utils::nearly_equal(final_position_to_enemy_distance,
+                                        new_coords_to_destination_distance))
+                {
                     return false;
                 }
             }
         }
     }
 
-    if (!unit.isCoherent())
+    if (!unit.is_coherent())
         return false;
+
     return true;
 }
 
-void PileInAction::execute(){
+
+void Pile_In_Action::execute(){
 }

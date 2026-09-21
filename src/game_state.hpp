@@ -13,18 +13,18 @@
 #include "vector.hpp"
 #include "objective.hpp"
 
-struct ClosestModel
+struct Closest_Model
 {
-    uint32_t playerId;
-    uint32_t unitIdx;
-    uint32_t modelIdx;
+    uint32_t player_id;
+    uint32_t unit_idx;
+    uint32_t model_idx;
     Vector position;
 };
 
-struct GameState
+struct Game_State
 {
-    std::optional<ClosestModel> findClosestEnemyModel(uint32_t currentPlayer, Vector origin);
-    uint32_t findClosestModel(Unit& unit, Vector origin);
+    std::optional<Closest_Model> find_closest_enemy_model(uint32_t current_player, Vector origin);
+    uint32_t find_closest_model(Unit& unit, Vector origin);
 
     std::map<Player, std::vector<Unit>> units;
     std::vector<Objective> objectives;

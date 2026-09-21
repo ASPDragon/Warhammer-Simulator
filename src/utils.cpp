@@ -10,11 +10,11 @@
 #include <cmath>
 
 namespace utils {
-    bool nearlyEqual(float a, float b, float epsilon) {
+    bool nearly_equal(float a, float b, float epsilon) {
         return fabs(a - b) <= epsilon;
     }
 
-    float distanceBetweenBases(const Vector& a, const Vector& b, float r1, float r2) {
+    float distance_between_bases(const Vector& a, const Vector& b, float r1, float r2) {
         return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2)) - (r1 + r2);
     }
 }

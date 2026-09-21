@@ -6,7 +6,7 @@
 
 #include "vector.hpp"
 
-double Vector::calculateDistance(const Vector& rhs) const {
+double Vector::calculate_distance(const Vector& rhs) const {
     return std::sqrt(pow(rhs.x - this->x, 2) + pow(rhs.y - this->y, 2));
 }
 

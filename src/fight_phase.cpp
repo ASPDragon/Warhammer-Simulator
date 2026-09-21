@@ -18,7 +18,7 @@
 #include <algorithm>
 // #include <exception>
 
-bool FightPhase::pileIn(const Unit& currentUnit, const std::span<std::pair<size_t, Vector>> destination,
+bool Fight_Phase::pileIn(const Unit& currentUnit, const std::span<std::pair<size_t, Vector>> destination,
     const std::span<Unit> enemyUnits, const float maximumDistance) const {
     if (destination.size() != currentUnit.models.size()) return false;
     
@@ -26,39 +26,39 @@ bool FightPhase::pileIn(const Unit& currentUnit, const std::span<std::pair<size_
         size_t idx = destination[i].first; // Ensure destination aligns with the current model
 
         auto currentModel = currentUnit.models[i];
-        if (currentModel.coords.calculateDistance(destination[i].second) > maximumDistance)
+        if (currentModel.coords.calculate_distance(destination[i].second) > maximumDistance)
             return false;
 
-        auto closestEnemy = findClosestEnemy(currentUnit.models[idx], enemyUnits);
+        auto closestEnemy = find_closest_enemy(currentUnit.models[idx], enemyUnits);
         if (!closestEnemy) return false;
-        float oldCoordsToDestinationDistance = currentUnit.models[idx].coords.calculateDistance(closestEnemy->coords);
+        float oldCoordsToDestinationDistance = currentUnit.models[idx].coords.calculate_distance(closestEnemy->coords);
 
-        float distanceBetweenBases = utils::distanceBetweenBases(currentUnit.models[idx].coords, closestEnemy->coords,
-            currentUnit.models[idx].baseRadius, closestEnemy->baseRadius);
+        float distanceBetweenBases = utils::distance_between_bases(currentUnit.models[idx].coords, closestEnemy->coords,
+            currentUnit.models[idx].base_radius, closestEnemy->base_radius);
         if (distanceBetweenBases <= maximumDistance) {
             auto baseToBaseVector = closestEnemy->coords - currentModel.coords;
-            auto newCoords = baseToBaseVector.normalized() * (baseToBaseVector.length() - currentModel.baseRadius - closestEnemy->baseRadius);
-            float newCoordsToModelDistance = newCoords.calculateDistance(currentModel.coords);
+            auto newCoords = baseToBaseVector.normalized() * (baseToBaseVector.length() - currentModel.base_radius - closestEnemy->base_radius);
+            float newCoordsToModelDistance = newCoords.calculate_distance(currentModel.coords);
 
             if (newCoordsToModelDistance <= maximumDistance) {
-                auto finalPositionToEnemyDistance = destination[i].second.calculateDistance(closestEnemy->coords);
-                auto newCoordsToDestinationDistance = newCoords.calculateDistance(closestEnemy->coords);
-                if (!utils::nearlyEqual(finalPositionToEnemyDistance, newCoordsToDestinationDistance)) {
+                auto finalPositionToEnemyDistance = destination[i].second.calculate_distance(closestEnemy->coords);
+                auto newCoordsToDestinationDistance = newCoords.calculate_distance(closestEnemy->coords);
+                if (!utils::nearly_equal(finalPositionToEnemyDistance, newCoordsToDestinationDistance)) {
                     return false;
                 }
             }
         }
     }
 
-    if (!currentUnit.isCoherent())
+    if (!currentUnit.is_coherent())
         return false;
     return true;
 }
 
-bool FightPhase::isWithinEngagementRange(const Model& model, const std::span<Unit> enemyUnits, double range) const {
+bool Fight_Phase::is_within_engagement_range(const Model& model, const std::span<Unit> enemyUnits, double range) const {
     for (const auto& enemyUnit : enemyUnits) {
         for (const auto& enemyModel : enemyUnit.models) {
-            if (model.coords.calculateDistance(enemyModel.coords) <= range)
+            if (model.coords.calculate_distance(enemyModel.coords) <= range)
                 return true;
         }
     }
@@ -67,13 +67,13 @@ bool FightPhase::isWithinEngagementRange(const Model& model, const std::span<Uni
 }
 
 
-const Model* FightPhase::findClosestEnemy(const Model& model, const std::span<Unit> enemyUnits) const {
+const Model* Fight_Phase::find_closest_enemy(const Model& model, const std::span<Unit> enemyUnits) const {
     double minimalDistance = std::numeric_limits<double>::max();
     const Model* nearestEnemyModel = nullptr;
 
     for (auto& enemyUnit : enemyUnits) {
         for (auto& enemyModel : enemyUnit.models) {
-            if (double currentDistance = model.coords.calculateDistance(enemyModel.coords); currentDistance < minimalDistance) {
+            if (double currentDistance = model.coords.calculate_distance(enemyModel.coords); currentDistance < minimalDistance) {
                 minimalDistance = currentDistance;
                 nearestEnemyModel = &enemyModel;
             }
@@ -82,18 +82,18 @@ const Model* FightPhase::findClosestEnemy(const Model& model, const std::span<Un
     return nearestEnemyModel;
 }
 
-bool FightPhase::canFight(const Unit& unit) const {
+bool Fight_Phase::can_fight(const Unit& unit) const {
     bool hasMelee = std::ranges::any_of(unit.models,
         [](Model const& m){
-            return std::ranges::any_of(m.weapons, &Weapon::isMelee);
+            return std::ranges::any_of(m.weapons, &Weapon::is_melee);
         });
-    return unit.isAlive() && hasMelee;
+    return unit.is_alive() && hasMelee;
 }
 
-void FightPhase::fight(const Unit& currentUnit, const std::span<std::pair<size_t, Weapon&>> selectedWeapons, const Unit& enemyUnit, const uint16_t maximumDistance)
+void Fight_Phase::fight(const Unit& currentUnit, const std::span<std::pair<size_t, Weapon&>> selectedWeapons, const Unit& enemyUnit, const uint16_t maximumDistance)
 {
-    if (!canFight(currentUnit) || selectedWeapons.size() != currentUnit.models.size())
-        throw std::logic_error{std::format("Unit #{} can't fight", currentUnit._datasheet._unitId)};
+    if (!can_fight(currentUnit) || selectedWeapons.size() != currentUnit.models.size())
+        throw std::logic_error{std::format("Unit #{} can't fight", currentUnit._datasheet._unit_id)};
 
     for (const auto& model : currentUnit.models)
     {

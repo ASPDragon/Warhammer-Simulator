@@ -19,10 +19,10 @@ struct Unit {
     // Datasheet& getDatasheet() const { return _datasheet; }
     int attack(const Unit& enemyUnit, const Weapon& currentWeapon) const;
 
-    bool isCoherent() const;
-    bool isAlive() const;
+    bool is_coherent() const;
+    bool is_alive() const;
 
-    void casualtyHandling();
+    void casualty_handling();
 
     Datasheet& _datasheet;
     std::vector<Model> models;

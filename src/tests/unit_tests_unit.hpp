@@ -7,7 +7,7 @@ TEST(UnitTest, EmptyUnit) {
     Datasheet datasheet(123, "Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 0, 0);
     Unit unit(datasheet);
     
-    ASSERT_TRUE(unit.isCoherent()); // Define: Empty unit is trivially coherent
+    ASSERT_TRUE(unit.is_coherent()); // Define: Empty unit is trivially coherent
 }
 
 TEST(UnitTest, SingleModelUnit) {
@@ -15,7 +15,7 @@ TEST(UnitTest, SingleModelUnit) {
     Unit unit(datasheet);
     unit.models[0].coords = {0, 0};
 
-    ASSERT_TRUE(unit.isCoherent()); // Single model is coherent by default
+    ASSERT_TRUE(unit.is_coherent()); // Single model is coherent by default
 }
 
 TEST(UnitTest, AllModelsCoherent) {
@@ -25,7 +25,7 @@ TEST(UnitTest, AllModelsCoherent) {
     unit.models[1].coords = {0.5, 0.5};
     unit.models[2].coords = {1.0, 0.5};
     
-    ASSERT_TRUE(unit.isCoherent()); // All models within coherentDistance
+    ASSERT_TRUE(unit.is_coherent()); // All models within coherentDistance
 }
 
 TEST(UnitTest, SomeModelsIncoherent) {
@@ -35,7 +35,7 @@ TEST(UnitTest, SomeModelsIncoherent) {
     unit.models[1].coords = {2.0, 2.0};
     unit.models[2].coords = {0.5, 0.5};
     
-    ASSERT_FALSE(unit.isCoherent()); // At least one model not coherent
+    ASSERT_FALSE(unit.is_coherent()); // At least one model not coherent
 }
 
 TEST(UnitTest, BoundaryCase) {
@@ -44,5 +44,5 @@ TEST(UnitTest, BoundaryCase) {
     unit.models[0].coords = {0.0, 0.0};
     unit.models[1].coords = {1.0, 0.0}; // Exactly at coherentDistance
 
-    ASSERT_TRUE(unit.isCoherent()); // Models at boundary are still coherent
+    ASSERT_TRUE(unit.is_coherent()); // Models at boundary are still coherent
 }

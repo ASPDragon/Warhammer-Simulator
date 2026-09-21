@@ -8,6 +8,6 @@
 
 class ShootingPhase;
 class ChargePhase;
-class FightingPhase;
+class Fight_Phase;
 
-class BattleRound {};
+class Battle_Round {};

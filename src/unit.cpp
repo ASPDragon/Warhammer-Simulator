@@ -15,7 +15,7 @@
 
 Unit::Unit(Datasheet& datasheet)
 : _datasheet{datasheet} {
-    for (size_t num = 0; num < _datasheet._modelsNum; ++num)
+    for (size_t num = 0; num < _datasheet._models_num; ++num)
         models.push_back(_datasheet);
 }
 
@@ -24,7 +24,7 @@ int Unit::attack(const Unit& enemyUnit, const Weapon& currentWeapon) const {
     int totalAttacksNum = 0;
 
     while (totalAttacksNum < currentWeapon.attacks)   {
-        int rate = Dice::throwDice();
+        int rate = Dice::throw_dice();
 
         if (currentWeapon.strength >= 2 * enemyUnit._datasheet._toughness && rate >= 2) {
             wounds += currentWeapon.damage;
@@ -52,7 +52,7 @@ int Unit::attack(const Unit& enemyUnit, const Weapon& currentWeapon) const {
     return wounds;
 }
 
-bool Unit::isCoherent() const {
+bool Unit::is_coherent() const {
     if (models.empty() || models.size() == 1) return  true;
 
     double coherentDistance = 1.0;
@@ -61,7 +61,7 @@ bool Unit::isCoherent() const {
         bool hasNeighbor = false;
 
         for (auto other = std::next(current); other != models.end(); ++other) {
-            if (current->coords.calculateDistance(other->coords) <= coherentDistance) {
+            if (current->coords.calculate_distance(other->coords) <= coherentDistance) {
                 hasNeighbor = true;
                 break;
             }
@@ -72,12 +72,12 @@ bool Unit::isCoherent() const {
     return true;
 }
 
-bool Unit::isAlive() const  { 
+bool Unit::is_alive() const  { 
     return !models.empty();
 }
 
-void Unit::casualtyHandling() {
+void Unit::casualty_handling() {
     models.erase(std::remove_if(std::begin(models), std::end(models),
-                [](const Model& m) { return m.isDead(); }),
+                [](const Model& m) { return m.is_dead(); }),
                 models.end());
 }
