@@ -9,9 +9,7 @@
 #include "vector.hpp"
 #include "unit.hpp"
 
-using namespace std;
-
-string PileInAction::validate() const {
+std::string PileInAction::validate() const {
     if (destinations.size() != unit.models.size())
         return "Error: ";
 
