@@ -9,7 +9,7 @@
 #include "vector.hpp"
 #include "unit.hpp"
 
-bool Pile_In_Action::validate() const {
+bool PileInAction::validate() const {
     if (destinations.size() != unit.models.size())
         return false;
 
@@ -26,13 +26,13 @@ bool Pile_In_Action::validate() const {
 
         std::vector<Unit> enemy_units = {};
 
-        for (auto& [player_key, player_units] : _state.units) {
+        for (auto& [player_key, player_units] : _state.get()->units) {
             if (player_key != player)
                 enemy_units = std::move(player_units);
         }
 
         auto closest_enemy =
-            _state.find_closest_enemy_model(unit.models[destination_model_index].id,
+            _state.get()->find_closest_enemy_model(unit.models[destination_model_index].id,
                                          current_model.coords);
 
         if (!closest_enemy)
@@ -47,7 +47,7 @@ bool Pile_In_Action::validate() const {
                 unit.models[destination_model_index].coords,
                 closest_enemy.value().position,
                 unit.models[destination_model_index].base_radius,
-                _state.units[closest_model.unit_id].models[model_id].base_radius);
+                _state.get()->units[closest_model.unit_id].models[model_id].base_radius);
 
         if (distance_between_bases <= maximum_distance) {
             auto base_to_base_vector =
@@ -57,7 +57,7 @@ bool Pile_In_Action::validate() const {
                 base_to_base_vector.normalized() *
                 (base_to_base_vector.length() -
                  current_model.base_radius -
-                 _state.units[closest_model.unitId].models[model_id].baseRadius);
+                 _state.get()->units[closest_model.unitId].models[model_id].baseRadius);
 
             float new_coords_to_model_distance =
                 new_coords.calculate_distance(current_model.coords);
@@ -86,5 +86,5 @@ bool Pile_In_Action::validate() const {
 }
 
 
-void Pile_In_Action::execute(){
+void PileInAction::execute(){
 }

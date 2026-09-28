@@ -20,10 +20,6 @@ struct Model {
 
     // virtual qtils::OptionalRef<const Weapon> getWeapon(const std::string& weaponName) const;
     // virtual Coords getCoords() const { return coords; }
-
-    virtual bool is_dead() const;
-
-    virtual void take_damage(uint16_t& damage);
     
     Vector coords;
     uint32_t id;
@@ -33,4 +29,8 @@ struct Model {
     uint16_t save;
     uint16_t wounds;
     std::vector<Weapon> weapons;
+
+protected:
+    virtual bool is_dead() const;
+    virtual void take_damage(uint16_t& damage);
 };

@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <memory>
 #include "game_state.hpp"
 
 struct Action
@@ -15,5 +16,5 @@ struct Action
     virtual ~Action() = default;
 
 protected:
-    Game_State& _state;
+    std::shared_ptr<Game_State> _state;
 };

@@ -8,7 +8,9 @@
 
 class Vector;
 
-class Pile_In_Action : public Action {
+using distance_t = float;
+
+class PileInAction : public Action {
 public:
     bool validate() const override;
     void execute() override;
@@ -16,6 +18,6 @@ public:
 private:
     Player player;
     Unit unit;
-    std::vector<std::pair<size_t, Vector>> destinations;
-    size_t maximum_distance;
+    std::vector<std::pair<distance_t, Vector>> destinations;
+    distance_t maximum_distance;
 };

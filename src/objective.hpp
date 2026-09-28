@@ -4,8 +4,9 @@
 
 #pragma once
 
+#include <memory>
 #include "vector.hpp"
 
 struct Objective {
-    const Vector& location;
+    const std::shared_ptr<Vector> location;
 };
