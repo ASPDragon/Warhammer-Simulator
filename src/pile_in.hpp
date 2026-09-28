@@ -12,7 +12,7 @@ using distance_t = float;
 
 class PileInAction : public Action {
 public:
-    bool validate() const override;
+    std::string validate() const override;
     void execute() override;
 
 private:

@@ -47,6 +47,8 @@ set(PROJECT_SRC
 
 add_executable(${PROJECT_NAME} ${PROJECT_SRC})
 
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
 target_link_libraries(${PROJECT_NAME}
         GTest::gtest GTest::gtest_main
         )

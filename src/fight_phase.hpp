@@ -32,5 +32,4 @@ protected:
     bool can_fight(const Unit& unit) const;
     
 private:
-    // std::vector<Player> players;
 };

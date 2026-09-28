@@ -31,6 +31,6 @@ struct Model {
     std::vector<Weapon> weapons;
 
 protected:
-    virtual bool is_dead() const;
+    [[nodiscard]] virtual bool is_dead() const;
     virtual void take_damage(uint16_t& damage);
 };

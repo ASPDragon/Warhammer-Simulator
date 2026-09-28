@@ -9,19 +9,21 @@
 #include "vector.hpp"
 #include "unit.hpp"
 
-bool PileInAction::validate() const {
+using namespace std;
+
+string PileInAction::validate() const {
     if (destinations.size() != unit.models.size())
-        return false;
+        return "Error: ";
 
     for (size_t model_index = 0; model_index < unit.models.size(); ++model_index) {
-        size_t destination_model_index = destinations[model_index].first;
+        const distance_t destination_model_index = destinations[model_index].first;
 
         auto current_model = unit.models[model_index];
 
         if (current_model.coords.calculate_distance(destinations[model_index].second) >
             maximum_distance)
         {
-            return false;
+            return "Error: The target unit is too far";
         }
 
         std::vector<Unit> enemy_units = {};
@@ -36,7 +38,7 @@ bool PileInAction::validate() const {
                                          current_model.coords);
 
         if (!closest_enemy)
-            return false;
+            return "Error: There's no enemy unit!";
 
         float old_coords_to_destination_distance =
             unit.models[destination_model_index]
@@ -73,16 +75,16 @@ bool PileInAction::validate() const {
                 if (!utils::nearly_equal(final_position_to_enemy_distance,
                                         new_coords_to_destination_distance))
                 {
-                    return false;
+                    return "Error: ";
                 }
             }
         }
     }
 
     if (!unit.is_coherent())
-        return false;
+        return "Error: The unit is not coherent!";
 
-    return true;
+    return "Time to Pile In!";
 }
 
 

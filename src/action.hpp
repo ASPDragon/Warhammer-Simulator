@@ -10,7 +10,7 @@
 struct Action
 {
     explicit Action(Game_State& state);
-    [[nodiscard]] virtual bool validate() const = 0;
+    [[nodiscard]] virtual std::string validate() const = 0;
     virtual void execute() = 0;
 
     virtual ~Action() = default;

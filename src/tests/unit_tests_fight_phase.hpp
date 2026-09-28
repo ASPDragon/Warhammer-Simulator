@@ -1,11 +1,11 @@
 #include <gtest/gtest.h>
-#include "../fight_phase.hpp"
-#include "../unit.hpp"
-#include "../datasheet.hpp"
-#include "../model.hpp"
-#include "../vector.hpp"
+#include "fight_phase.hpp"
+#include "unit.hpp"
+#include "datasheet.hpp"
+#include "model.hpp"
+#include "vector.hpp"
 
-Unit createTestUnit() {
+inline Unit createTestUnit() {
     Datasheet datasheet("Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 3, 108);
     Unit unit(datasheet);
     unit.models[0].coords = {0.0, 0.0};
@@ -14,7 +14,7 @@ Unit createTestUnit() {
     return unit;
 }
 
-Unit createEnemyUnit(Datasheet& datasheet, const std::vector<Vector>& coordinates) {
+inline Unit createEnemyUnit(Datasheet& datasheet, const std::vector<Vector>& coordinates) {
     Unit unit(datasheet);
     
     for (size_t i = 0; i < unit.models.size() && i < coordinates.size(); ++i) {
@@ -23,7 +23,7 @@ Unit createEnemyUnit(Datasheet& datasheet, const std::vector<Vector>& coordinate
     return unit;
 }
 
-std::vector<Unit> createEnemyUnits() {
+inline std::vector<Unit> createEnemyUnits() {
     // Define coordinates for multiple enemy units
     std::vector<Vector> chaosTerminatorSquadCoords = {{0.8, 0.8}, {1.5, 0.5}, {0.3, 0.3}};
     std::vector<Vector> sorcererCoords = {{2.0, 2.0}};
