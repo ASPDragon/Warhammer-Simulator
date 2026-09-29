@@ -6,8 +6,8 @@
 
 #include "datasheet.hpp"
 
-Datasheet::Datasheet(const uint16_t unitId, const std::string_view unitName, const uint16_t baseDiameter, const uint16_t move, const uint16_t toughness,
+Datasheet::Datasheet(const uint16_t unit_id, const std::string_view unit_name, const uint16_t base_diameter, const uint16_t move, const uint16_t toughness,
               const uint16_t save, const uint16_t wounds, const uint16_t leadership,
-              const uint16_t objectiveControl, const uint16_t modelsNum, const uint16_t cost)
-: _unit_id{ unitId }, _unit_name{ unitName }, _base_diameter{ baseDiameter }, _move{ move }, _toughness{ toughness }, _save{ save }, _wounds{ wounds },
-    _leadership{ leadership }, _objective_control{ objectiveControl }, _models_num{ modelsNum }, _cost{ cost } {}
+              const uint16_t objective_control, const uint16_t models_num, const uint16_t cost)
+: unit_id{ unit_id }, unit_name{ unit_name }, base_diameter{ base_diameter }, move{ move }, toughness{ toughness }, save{ save }, wounds{ wounds },
+    leadership{ leadership }, objective_control{ objective_control }, models_num{ models_num }, cost{ cost } {}

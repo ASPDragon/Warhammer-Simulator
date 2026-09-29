@@ -15,7 +15,7 @@
 
 Unit::Unit(Datasheet& datasheet)
 : _datasheet{datasheet} {
-    for (size_t num = 0; num < _datasheet._models_num; ++num)
+    for (size_t num = 0; num < _datasheet.models_num; ++num)
         models.push_back(_datasheet);
 }
 
@@ -26,17 +26,17 @@ int Unit::attack(const Unit& enemyUnit, const Weapon& currentWeapon) const {
     while (totalAttacksNum < currentWeapon.attacks)   {
         int rate = Dice::throw_dice();
 
-        if (currentWeapon.strength >= 2 * enemyUnit._datasheet._toughness && rate >= 2) {
+        if (currentWeapon.strength >= 2 * enemyUnit._datasheet.toughness && rate >= 2) {
             wounds += currentWeapon.damage;
         }
-        else if (currentWeapon.strength > enemyUnit._datasheet._toughness && rate >= 3) {
+        else if (currentWeapon.strength > enemyUnit._datasheet.toughness && rate >= 3) {
             wounds += currentWeapon.damage;
         }
-        else if (currentWeapon.strength == enemyUnit._datasheet._toughness && rate >= 4) {
+        else if (currentWeapon.strength == enemyUnit._datasheet.toughness && rate >= 4) {
             wounds += currentWeapon.damage;
         } 
-        else if (currentWeapon.strength < enemyUnit._datasheet._toughness) {
-            if (currentWeapon.strength <= 0.5 * enemyUnit._datasheet._toughness && rate >= 6) {
+        else if (currentWeapon.strength < enemyUnit._datasheet.toughness) {
+            if (currentWeapon.strength <= 0.5 * enemyUnit._datasheet.toughness && rate >= 6) {
                 wounds += currentWeapon.damage;
             }
             else {

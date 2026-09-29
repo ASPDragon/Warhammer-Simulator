@@ -12,14 +12,12 @@
 #include "vector.hpp"
 #include "optional_ref.hpp"
 
-class Weapon;
+struct Weapon;
 class Datasheet;
 
 struct Model {
-    Model(const Datasheet& datasheet);
-
-    // virtual qtils::OptionalRef<const Weapon> getWeapon(const std::string& weaponName) const;
-    // virtual Coords getCoords() const { return coords; }
+    explicit Model(const Datasheet& datasheet);
+    virtual ~Model() = default;
     
     Vector coords;
     uint32_t id;

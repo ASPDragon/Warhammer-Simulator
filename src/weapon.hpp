@@ -22,8 +22,8 @@ enum class WeaponType {
 };
 
 struct Weapon {
-    bool is_melee() const { return range == 0.0; }
-    bool is_ranged() const { return !is_melee(); }
+    [[nodiscard]] bool is_melee() const { return range == 0.0; }
+    [[nodiscard]] bool is_ranged() const { return !is_melee(); }
     std::string name;
     float range;
     uint16_t attacks;

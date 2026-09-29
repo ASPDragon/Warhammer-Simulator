@@ -27,9 +27,9 @@ std::optional<Closest_Model> Game_State::find_closest_enemy_model(uint32_t curre
         if (player.id == current_player) continue;
         for (auto [unit_idx, unit] : playerUnits | std::views::enumerate) {
             // option because they all could be dead
-            std::optional<uint32_t> modelId  = find_closest_model(unit, origin);
-            if (modelId && (!closest_model || closest_model->position.calculate_distance(origin) > unit.models[*modelId].coords.calculate_distance(origin))) {
-                closest_model = {player.id, unit._datasheet._unit_id, *modelId, unit.models[*modelId].coords};
+            std::optional<uint32_t> model_id  = find_closest_model(unit, origin);
+            if (model_id && (!closest_model || closest_model->position.calculate_distance(origin) > unit.models[*model_id].coords.calculate_distance(origin))) {
+                closest_model = {player.id, unit._datasheet.unit_id, *model_id, unit.models[*model_id].coords};
             }
         }
     }

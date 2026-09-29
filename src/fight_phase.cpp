@@ -93,7 +93,7 @@ bool Fight_Phase::can_fight(const Unit& unit) const {
 void Fight_Phase::fight(const Unit& currentUnit, const std::span<std::pair<size_t, Weapon&>> selectedWeapons, const Unit& enemyUnit, const uint16_t maximumDistance)
 {
     if (!can_fight(currentUnit) || selectedWeapons.size() != currentUnit.models.size())
-        throw std::logic_error{std::format("Unit #{} can't fight", currentUnit._datasheet._unit_id)};
+        throw std::logic_error{std::format("Unit #{} can't fight", currentUnit._datasheet.unit_id)};
 
     for (const auto& model : currentUnit.models)
     {

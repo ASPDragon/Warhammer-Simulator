@@ -27,7 +27,7 @@ std::string PileInAction::validate() const {
         std::vector<Unit> enemy_units = {};
 
         for (auto& [player_key, player_units] : _state.get()->units) {
-            if (player_key != player)
+            if (player_key != player.id)
                 enemy_units = std::move(player_units);
         }
 
@@ -47,7 +47,7 @@ std::string PileInAction::validate() const {
                 unit.models[destination_model_index].coords,
                 closest_enemy.value().position,
                 unit.models[destination_model_index].base_radius,
-                _state.get()->units[closest_model.unit_id].models[model_id].base_radius);
+                _state.get()->units[closest_enemy.value().player_id][closest_enemy.value().unit_idx].models[closest_enemy.value().model_idx].base_radius);
 
         if (distance_between_bases <= maximum_distance) {
             auto base_to_base_vector =
@@ -57,7 +57,7 @@ std::string PileInAction::validate() const {
                 base_to_base_vector.normalized() *
                 (base_to_base_vector.length() -
                  current_model.base_radius -
-                 _state.get()->units[closest_model.unitId].models[model_id].baseRadius);
+                 _state.get()->units[closest_enemy.value().player_id][closest_enemy.value().unit_idx].models[closest_enemy.value().model_idx].base_radius);
 
             float new_coords_to_model_distance =
                 new_coords.calculate_distance(current_model.coords);
