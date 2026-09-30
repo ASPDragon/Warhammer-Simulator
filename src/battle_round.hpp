@@ -1,7 +1,13 @@
+/**
+* Copyright Sergei Avdoshkin aka ASPDragon
+* All Rights Reserved
+* Warhammer-Simulator
+*/
+
 #pragma once
 
 class ShootingPhase;
 class ChargePhase;
-class FightingPhase;
+class Fight_Phase;
 
-class BattleRound {};
+class Battle_Round {};

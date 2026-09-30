@@ -1,21 +1,34 @@
+/**
+* Copyright Sergei Avdoshkin aka ASPDragon
+* All Rights Reserved
+* Warhammer-Simulator
+*/
+
 #pragma once
 
 #include <vector>
 #include <string>
-#include "utils.hpp"
+#include <cstdint>
+#include "vector.hpp"
+#include "optional_ref.hpp"
 
-class Weapon;
+struct Weapon;
+class Datasheet;
 
-class Model {
-public:
-    Model();
-
-    Weapon& getWeapon(std::string& weaponName) const;
-
-    bool isDead();
+struct Model {
+    explicit Model(const Datasheet& datasheet);
+    virtual ~Model() = default;
     
-private:
-    Coords coords;
-    unsigned int wounds;
+    Vector coords;
+    uint32_t id;
+    uint16_t base_radius;
+    uint16_t move;
+    uint16_t toughness;
+    uint16_t save;
+    uint16_t wounds;
     std::vector<Weapon> weapons;
+
+protected:
+    [[nodiscard]] virtual bool is_dead() const;
+    virtual void take_damage(uint16_t& damage);
 };

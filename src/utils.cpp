@@ -1,0 +1,20 @@
+/**
+* Copyright Sergei Avdoshkin aka ASPDragon
+* All Rights Reserved
+* Warhammer-Simulator
+*/
+
+#include "utils.hpp"
+#include "vector.hpp"
+
+#include <cmath>
+
+namespace utils {
+    bool nearly_equal(float a, float b, float epsilon) {
+        return std::fabs(a - b) <= epsilon;
+    }
+
+    float distance_between_bases(const Vector& a, const Vector& b, float r1, float r2) {
+        return std::sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2)) - (r1 + r2);
+    }
+}

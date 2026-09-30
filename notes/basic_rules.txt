@@ -20,7 +20,7 @@ Engagement_Range:
 
 Measuring_Distances:
 - Distances measured in inches (").
-- Always measure closest distance between bases (or hulls).
+- Always measure the closest distance between bases (or hulls).
 - Hull = Any part of a model that does not have a base. Can measure distances
   whenever you want.
 - If several units tied for closest, player resolving the rule selects which
@@ -53,7 +53,7 @@ Roll-Offs:
 
 Sequencing:
 If several rules must be resolved at the same time, the player whose turn
-  it is chooses the order to resolve them.
+  is choosing the order to resolve them.
 
 Starting_Strength,_Half-Strength_And_Destroyed_Units:
 - Starting Strength: Number of models in unit when it is added to your army.
