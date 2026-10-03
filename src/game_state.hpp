@@ -5,7 +5,7 @@
 #pragma once
 
 #include <span>
-#include <map>
+#include <unordered_map>
 #include <optional>
 
 #include "player.hpp"
@@ -30,6 +30,6 @@ struct Game_State
     std::optional<Closest_Model> find_closest_enemy_model(uint32_t current_player, Vector origin);
     uint32_t find_closest_model(Unit& unit, Vector origin);
 
-    std::map<player_id_t, std::vector<Unit>> units;
+    std::unordered_map<player_id_t, std::vector<Unit>> units;
     std::vector<Objective> objectives;
 };

@@ -9,7 +9,7 @@
 #include <cmath>
 
 struct Vector {
-    [[nodiscard]] double calculate_distance(const Vector& rhs) const { return std::sqrt(pow(rhs.x - this->x, 2) + pow(rhs.y - this->y, 2)); }
+    [[nodiscard]] float calculate_distance(const Vector& rhs) const { return std::sqrtf(powf(rhs.x - this->x, 2.0) + powf(rhs.y - this->y, 2.0)); }
     [[nodiscard]] float length() const { return std::sqrt(this->x * this->x + this->y * this->y); }
 
     Vector operator-(const Vector& vector) const {return { .x = this->x - vector.x, .y = this->y - vector.y }; }

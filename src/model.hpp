@@ -21,7 +21,7 @@ struct Model {
     
     Vector coords;
     uint32_t id;
-    uint16_t base_radius;
+    float base_radius;
     uint16_t move;
     uint16_t toughness;
     uint16_t save;

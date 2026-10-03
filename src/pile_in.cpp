@@ -14,7 +14,7 @@ std::string PileInAction::validate() const {
         return "Error: ";
 
     for (size_t model_index = 0; model_index < unit.models.size(); ++model_index) {
-        const distance_t destination_model_index = destinations[model_index].first;
+        const size_t destination_model_index = destinations[model_index].first;
 
         auto current_model = unit.models[model_index];
 
@@ -42,7 +42,7 @@ std::string PileInAction::validate() const {
             unit.models[destination_model_index]
                 .coords.calculate_distance(closest_enemy.value().position);
 
-        float distance_between_bases =
+        const float distance_between_bases =
             utils::distance_between_bases(
                 unit.models[destination_model_index].coords,
                 closest_enemy.value().position,
@@ -59,15 +59,15 @@ std::string PileInAction::validate() const {
                  current_model.base_radius -
                  _state.get()->units[closest_enemy.value().player_id][closest_enemy.value().unit_idx].models[closest_enemy.value().model_idx].base_radius);
 
-            float new_coords_to_model_distance =
+            const float new_coords_to_model_distance =
                 new_coords.calculate_distance(current_model.coords);
 
             if (new_coords_to_model_distance <= maximum_distance) {
-                auto final_position_to_enemy_distance =
+                const auto final_position_to_enemy_distance =
                     destinations[model_index]
                         .second.calculate_distance(closest_enemy.value().position);
 
-                auto new_coords_to_destination_distance =
+                const auto new_coords_to_destination_distance =
                     new_coords.calculate_distance(closest_enemy.value().position);
 
                 if (!utils::nearly_equal(final_position_to_enemy_distance,
