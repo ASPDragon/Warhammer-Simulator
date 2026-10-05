@@ -25,7 +25,7 @@ struct Closest_Model
     Vector position;
 };
 
-struct Game_State
+struct GameState
 {
     std::optional<Closest_Model> find_closest_enemy_model(uint32_t current_player, Vector origin);
     uint32_t find_closest_model(Unit& unit, Vector origin);

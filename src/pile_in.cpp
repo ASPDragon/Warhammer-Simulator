@@ -9,36 +9,39 @@
 #include "vector.hpp"
 #include "unit.hpp"
 
-std::string PileInAction::validate() const {
+PileInAction::PileInAction(const std::shared_ptr<GameState>& state, const Player&& player, const Unit&& unit, const distance_t maximum_distance)
+: Action(state), player(player), unit(unit), maximum_distance(maximum_distance) {};
+
+ValidationReport PileInAction::validate() const {
     if (destinations.size() != unit.models.size())
-        return "Error: ";
+        return ValidationReport("Error: Invalid destination count");
 
     for (size_t model_index = 0; model_index < unit.models.size(); ++model_index) {
         const size_t destination_model_index = destinations[model_index].first;
 
-        auto current_model = unit.models[model_index];
+        const auto &current_model = unit.models[model_index];
 
         if (current_model.coords.calculate_distance(destinations[model_index].second) >
             maximum_distance)
         {
-            return "Error: The target unit is too far";
+            return ValidationReport("Error: Unit Is Too Far");
         }
 
         std::vector<Unit> enemy_units = {};
 
-        for (auto& [player_key, player_units] : _state.get()->units) {
+        for (auto& [player_key, player_units] : state.get()->units) {
             if (player_key != player.id)
                 enemy_units = std::move(player_units);
         }
 
         auto closest_enemy =
-            _state.get()->find_closest_enemy_model(unit.models[destination_model_index].id,
+            state.get()->find_closest_enemy_model(unit.models[destination_model_index].id,
                                          current_model.coords);
 
         if (!closest_enemy)
-            return "Error: There's no enemy unit!";
+            return ValidationReport("Error: No Enemy Unit");
 
-        float old_coords_to_destination_distance =
+        float old_distance =
             unit.models[destination_model_index]
                 .coords.calculate_distance(closest_enemy.value().position);
 
@@ -47,7 +50,7 @@ std::string PileInAction::validate() const {
                 unit.models[destination_model_index].coords,
                 closest_enemy.value().position,
                 unit.models[destination_model_index].base_radius,
-                _state.get()->units[closest_enemy.value().player_id][closest_enemy.value().unit_idx].models[closest_enemy.value().model_idx].base_radius);
+                state.get()->units[closest_enemy.value().player_id][closest_enemy.value().unit_idx].models[closest_enemy.value().model_idx].base_radius);
 
         if (distance_between_bases <= maximum_distance) {
             auto base_to_base_vector =
@@ -57,12 +60,17 @@ std::string PileInAction::validate() const {
                 base_to_base_vector.normalized() *
                 (base_to_base_vector.length() -
                  current_model.base_radius -
-                 _state.get()->units[closest_enemy.value().player_id][closest_enemy.value().unit_idx].models[closest_enemy.value().model_idx].base_radius);
+                 state.get()->units[closest_enemy.value().player_id][closest_enemy.value().unit_idx].models[closest_enemy.value().model_idx].base_radius);
 
-            const float new_coords_to_model_distance =
+            const float new_distance =
                 new_coords.calculate_distance(current_model.coords);
 
-            if (new_coords_to_model_distance <= maximum_distance) {
+            if (new_distance >= old_distance && !utils::nearly_equal(new_distance, old_distance))
+            {
+                return ValidationReport("Error: Not Closer To Enemy");
+            }
+
+            if (new_distance <= maximum_distance) {
                 const auto final_position_to_enemy_distance =
                     destinations[model_index]
                         .second.calculate_distance(closest_enemy.value().position);
@@ -73,18 +81,17 @@ std::string PileInAction::validate() const {
                 if (!utils::nearly_equal(final_position_to_enemy_distance,
                                         new_coords_to_destination_distance))
                 {
-                    return "Error: ";
+                    return ValidationReport("Unit Is Too Far");
                 }
             }
         }
     }
 
     if (!unit.is_coherent())
-        return "Error: The unit is not coherent!";
+        return ValidationReport("Error: Unit Is Not Coherent");
 
-    return "Time to Pile In!";
+    return ValidationReport("");
 }
-
 
 void PileInAction::execute(){
 }
