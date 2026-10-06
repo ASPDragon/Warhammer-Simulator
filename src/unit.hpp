@@ -1,22 +1,30 @@
+/**
+* Copyright Sergei Avdoshkin aka ASPDragon
+* All Rights Reserved
+* Warhammer-Simulator
+*/
+
 #pragma once
 
 #include "weapon.hpp"
 #include <vector>
 
-class Datasheet;
-class Model;
-class Weapon;
+struct Datasheet;
+struct Model;
+struct Weapon;
 
-class Unit {
-public:
-    Unit(Datasheet& datasheet);
+struct Unit {
+    explicit Unit(Datasheet& datasheet);
 
-    Datasheet& getDatasheet() const { return _datasheet; }
-    int attack(const Unit& enemyUnit, const Weapon& currentWeapon);
-    bool isUnitAlive() const { return isAlive; }
-    
-private:
+    // Datasheet& getDatasheet() const { return _datasheet; }
+    [[nodiscard]] int attack(const Unit& enemyUnit, const Weapon& currentWeapon) const;
+
+    [[nodiscard]] bool is_coherent() const;
+    [[nodiscard]] bool is_alive() const;
+
+    void casualty_handling();
+
     Datasheet& _datasheet;
-    std::vector<Model> unit;
-    bool isAlive;
+    std::vector<Model> models;
+    bool hasCharged = false;
 };
