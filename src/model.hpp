@@ -13,19 +13,19 @@
 #include "optional_ref.hpp"
 
 struct Weapon;
-class Datasheet;
+struct Datasheet;
 
 struct Model {
-    explicit Model(const Datasheet& datasheet);
+    explicit Model(uint32_t, const Datasheet&, const Vector& coords);
     virtual ~Model() = default;
-    
-    Vector coords;
+
     uint32_t id;
     float base_radius;
     uint16_t move;
     uint16_t toughness;
     uint16_t save;
     uint16_t wounds;
+    Vector coords;
     std::vector<Weapon> weapons;
 
 protected:

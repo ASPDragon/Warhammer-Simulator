@@ -9,19 +9,18 @@
 #include "weapon.hpp"
 #include <vector>
 
-class Datasheet;
-class Model;
-class Weapon;
+struct Datasheet;
+struct Model;
+struct Weapon;
 
 struct Unit {
-    Unit(Datasheet& datasheet);
-    Unit() = default;
+    explicit Unit(Datasheet& datasheet);
 
     // Datasheet& getDatasheet() const { return _datasheet; }
-    int attack(const Unit& enemyUnit, const Weapon& currentWeapon) const;
+    [[nodiscard]] int attack(const Unit& enemyUnit, const Weapon& currentWeapon) const;
 
-    bool is_coherent() const;
-    bool is_alive() const;
+    [[nodiscard]] bool is_coherent() const;
+    [[nodiscard]] bool is_alive() const;
 
     void casualty_handling();
 

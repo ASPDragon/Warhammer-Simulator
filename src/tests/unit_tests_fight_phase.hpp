@@ -6,7 +6,7 @@
 #include "vector.hpp"
 
 inline Unit createTestUnit() {
-    Datasheet datasheet("Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 3, 108);
+    Datasheet datasheet(1, "Terminator Assault Squad", 40, 5, 5, 2, 3, 6, 1, 5, 180);
     Unit unit(datasheet);
     unit.models[0].coords = {0.0, 0.0};
     unit.models[1].coords = {0.5, 0.5};
@@ -29,8 +29,8 @@ inline std::vector<Unit> createEnemyUnits() {
     std::vector<Vector> sorcererCoords = {{2.0, 2.0}};
     
     // Create units with provided coordinates
-    Datasheet chaosTerminatorSquadDatasheet("Chaos Terminator Squad", 40, 5, 5, 2, 3, 6, 1, 3, 108);
-    Datasheet sorcererDatasheet("Sorcerer", 40, 6, 4, 3, 4, 6, 1, 1, 60);
+    Datasheet chaosTerminatorSquadDatasheet(1, "Chaos Terminator Squad", 40, 5, 5, 2, 3, 6, 1, 3, 108);
+    Datasheet sorcererDatasheet(2, "Sorcerer", 40, 6, 4, 3, 4, 6, 1, 1, 60);
     Unit chaosTerminatorSquad = createEnemyUnit( chaosTerminatorSquadDatasheet,chaosTerminatorSquadCoords);
     Unit sorcerer = createEnemyUnit(sorcererDatasheet, sorcererCoords);
 

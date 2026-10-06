@@ -10,6 +10,7 @@
 struct Unit;
 
 struct Player {
+    explicit Player(uint32_t id);
     uint32_t id;
     bool operator==(const Player&) const = default;
 };
