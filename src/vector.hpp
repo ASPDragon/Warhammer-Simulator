@@ -14,6 +14,7 @@ struct Vector {
 
     Vector operator-(const Vector& vector) const {return { .x = this->x - vector.x, .y = this->y - vector.y }; }
     Vector operator*(const float scalar) const { return { .x = this->x * scalar, .y = this->y * scalar }; }
+    Vector operator+(const Vector& vector) const { return { .x = this->x + vector.x, .y = this->y + vector.y }; }
     [[nodiscard]] Vector normalized() const { return Vector{ .x = this->x / this->length(), .y = this->y / this->length() }; }
 
     float x;

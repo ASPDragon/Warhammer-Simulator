@@ -15,6 +15,7 @@ class Weapon;
 
 struct Unit {
     Unit(Datasheet& datasheet);
+    Unit() = default;
 
     // Datasheet& getDatasheet() const { return _datasheet; }
     int attack(const Unit& enemyUnit, const Weapon& currentWeapon) const;

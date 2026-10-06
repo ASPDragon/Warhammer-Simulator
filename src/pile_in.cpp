@@ -9,17 +9,18 @@
 #include "vector.hpp"
 #include "unit.hpp"
 
-PileInAction::PileInAction(const std::shared_ptr<GameState>& state, const Player&& player, const Unit&& unit, const distance_t maximum_distance)
-: Action(state), player(player), unit(unit), maximum_distance(maximum_distance) {};
+PileInAction::PileInAction(const std::shared_ptr<GameState>& state, const std::shared_ptr<Player>& player,
+    const std::shared_ptr<Unit>& unit, const std::vector<std::pair<size_t, Vector>>& destinations, const distance_t maximum_distance)
+: Action(state), player(player), unit(unit), destinations(destinations), maximum_distance(maximum_distance) {};
 
 ValidationReport PileInAction::validate() const {
-    if (destinations.size() != unit.models.size())
+    if (destinations.size() != unit->models.size())
         return ValidationReport("Error: Invalid destination count");
 
-    for (size_t model_index = 0; model_index < unit.models.size(); ++model_index) {
+    for (size_t model_index = 0; model_index < unit->models.size(); ++model_index) {
         const size_t destination_model_index = destinations[model_index].first;
 
-        const auto &current_model = unit.models[model_index];
+        const auto &current_model = unit->models[model_index];
 
         if (current_model.coords.calculate_distance(destinations[model_index].second) >
             maximum_distance)
@@ -30,27 +31,27 @@ ValidationReport PileInAction::validate() const {
         std::vector<Unit> enemy_units = {};
 
         for (auto& [player_key, player_units] : state.get()->units) {
-            if (player_key != player.id)
+            if (player_key != player->id)
                 enemy_units = std::move(player_units);
         }
 
         auto closest_enemy =
-            state.get()->find_closest_enemy_model(unit.models[destination_model_index].id,
+            state.get()->find_closest_enemy_model(unit->models[destination_model_index].id,
                                          current_model.coords);
 
         if (!closest_enemy)
             return ValidationReport("Error: No Enemy Unit");
 
         float old_distance =
-            unit.models[destination_model_index]
+            unit->models[destination_model_index]
                 .coords.calculate_distance(closest_enemy.value().position);
 
         const float distance_between_bases =
             utils::distance_between_bases(
-                unit.models[destination_model_index].coords,
+                unit->models[destination_model_index].coords,
                 closest_enemy.value().position,
-                unit.models[destination_model_index].base_radius,
-                state.get()->units[closest_enemy.value().player_id][closest_enemy.value().unit_idx].models[closest_enemy.value().model_idx].base_radius);
+                unit->models[destination_model_index].base_radius,
+                state->units[closest_enemy.value().player_id][closest_enemy.value().unit_idx].models[closest_enemy.value().model_idx].base_radius);
 
         if (distance_between_bases <= maximum_distance) {
             auto base_to_base_vector =
@@ -87,7 +88,7 @@ ValidationReport PileInAction::validate() const {
         }
     }
 
-    if (!unit.is_coherent())
+    if (!unit->is_coherent())
         return ValidationReport("Error: Unit Is Not Coherent");
 
     return ValidationReport("");

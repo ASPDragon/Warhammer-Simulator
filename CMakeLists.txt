@@ -43,6 +43,7 @@ set(PROJECT_SRC
         src/game_state.cpp
         src/objective.cpp
         src/objective.hpp
+        src/tests/unit_tests_pile_in.h
 )
 
 add_executable(${PROJECT_NAME} ${PROJECT_SRC})
