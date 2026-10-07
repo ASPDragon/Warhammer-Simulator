@@ -10,7 +10,6 @@
 #include "datasheet.hpp"
 #include "game_state.hpp"
 #include "pile_in.hpp"
-#include "player.hpp"
 #include "unit.hpp"
 #include "vector.hpp"
 #include "model.hpp"

@@ -8,7 +8,6 @@
 #include <unordered_map>
 #include <optional>
 
-#include "player.hpp"
 #include "unit.hpp"
 #include "vector.hpp"
 #include "objective.hpp"
@@ -27,8 +26,9 @@ struct Closest_Model
 
 struct GameState
 {
-    std::optional<Closest_Model> find_closest_enemy_model(uint32_t current_player, Vector origin);
-    uint32_t find_closest_model(Unit& unit, Vector origin);
+    GameState(std::unordered_map<player_id_t, std::vector<Unit>>&, std::vector<Objective>&);
+    model_idx_t find_closest_model(Unit&, const std::shared_ptr<Vector>&);
+    std::optional<Closest_Model> find_closest_enemy_model(player_id_t current_player, const std::shared_ptr<Vector>&);
 
     std::unordered_map<player_id_t, std::vector<Unit>> units;
     std::vector<Objective> objectives;

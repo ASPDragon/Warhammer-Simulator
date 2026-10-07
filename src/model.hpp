@@ -10,7 +10,6 @@
 #include <string>
 #include <cstdint>
 #include "vector.hpp"
-#include "optional_ref.hpp"
 
 struct Weapon;
 struct Datasheet;

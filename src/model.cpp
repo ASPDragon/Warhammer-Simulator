@@ -10,7 +10,6 @@
 #include <iterator>
 
 #include "datasheet.hpp"
-#include "optional_ref.hpp"
 #include "weapon.hpp"
 
 Model::Model(const uint32_t id, const Datasheet& datasheet, const Vector& coords)
