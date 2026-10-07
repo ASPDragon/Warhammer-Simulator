@@ -16,7 +16,7 @@ inline Unit createTestUnit() {
 
 inline Unit createEnemyUnit(Datasheet& datasheet, const std::vector<Vector>& coordinates) {
     Unit unit(datasheet);
-    
+
     for (size_t i = 0; i < unit.models.size() && i < coordinates.size(); ++i) {
         unit.models[i].coords = coordinates[i];
     }
@@ -27,7 +27,7 @@ inline std::vector<Unit> createEnemyUnits() {
     // Define coordinates for multiple enemy units
     std::vector<Vector> chaosTerminatorSquadCoords = {{0.8, 0.8}, {1.5, 0.5}, {0.3, 0.3}};
     std::vector<Vector> sorcererCoords = {{2.0, 2.0}};
-    
+
     // Create units with provided coordinates
     Datasheet chaosTerminatorSquadDatasheet(1, "Chaos Terminator Squad", 40, 5, 5, 2, 3, 6, 1, 3, 108);
     Datasheet sorcererDatasheet(2, "Sorcerer", 40, 6, 4, 3, 4, 6, 1, 1, 60);
@@ -38,7 +38,7 @@ inline std::vector<Unit> createEnemyUnits() {
     std::vector<Unit> enemyUnits;
     enemyUnits.push_back(chaosTerminatorSquad);
     enemyUnits.push_back(sorcerer);
-    
+
     return enemyUnits;
 }
 

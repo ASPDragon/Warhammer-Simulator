@@ -13,10 +13,14 @@
 #include "dice.hpp"
 #include "weapon.hpp"
 
+#include <memory>
+
 Unit::Unit(Datasheet& datasheet)
 : _datasheet{datasheet} {
-    for (size_t num = 0; num < _datasheet.models_num; ++num)
-        models.push_back(_datasheet);
+    for (unsigned int num = 0; num < _datasheet.models_num; ++num)
+    {
+        models.emplace_back( num, _datasheet );
+    }
 }
 
 int Unit::attack(const Unit& enemyUnit, const Weapon& currentWeapon) const {

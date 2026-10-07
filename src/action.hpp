@@ -22,7 +22,7 @@ private:
 
 struct Action
 {
-    explicit Action(const std::shared_ptr<GameState>& state);
+    explicit Action(const std::shared_ptr<GameState>& state) : state(state) {}
     [[nodiscard]] virtual ValidationReport validate() const = 0;
     virtual void execute() = 0;
 

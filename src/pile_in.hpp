@@ -6,6 +6,7 @@
 
 #include "action.hpp"
 
+struct Player;
 struct Vector;
 
 using distance_t = float;

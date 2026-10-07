@@ -12,9 +12,9 @@
 #include "datasheet.hpp"
 #include "weapon.hpp"
 
-Model::Model(const uint32_t id, const Datasheet& datasheet, const Vector& coords)
+Model::Model(const uint32_t id, const Datasheet& datasheet)
 : id{ id }, base_radius{ datasheet.base_diameter / 2.0f }, move { datasheet.move }, toughness { datasheet.toughness },
-    save { datasheet.save }, wounds{ datasheet.wounds }, coords{ coords } {}
+    save { datasheet.save }, wounds{ datasheet.wounds } {}
 
 
 bool Model::is_dead() const {

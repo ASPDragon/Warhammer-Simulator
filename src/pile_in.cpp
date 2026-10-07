@@ -5,6 +5,7 @@
 #include "pile_in.hpp"
 
 #include "model.hpp"
+#include "player.hpp"
 #include "utils.hpp"
 #include "vector.hpp"
 #include "unit.hpp"
@@ -37,7 +38,7 @@ ValidationReport PileInAction::validate() const {
 
         auto closest_enemy =
             state.get()->find_closest_enemy_model(unit->models[destination_model_index].id,
-                                         current_model.coords);
+                                         std::make_shared<Vector>(current_model.coords));
 
         if (!closest_enemy)
             return ValidationReport("Error: No Enemy Unit");

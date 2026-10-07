@@ -15,7 +15,7 @@ struct Weapon;
 struct Datasheet;
 
 struct Model {
-    explicit Model(uint32_t, const Datasheet&, const Vector& coords);
+    explicit Model(uint32_t, const Datasheet&);
     virtual ~Model() = default;
 
     uint32_t id;
@@ -24,7 +24,7 @@ struct Model {
     uint16_t toughness;
     uint16_t save;
     uint16_t wounds;
-    Vector coords;
+    Vector coords = { .x = 0, .y = 0 };
     std::vector<Weapon> weapons;
 
     [[nodiscard]] virtual bool is_dead() const;
