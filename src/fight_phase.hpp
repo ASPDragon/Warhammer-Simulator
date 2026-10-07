@@ -25,7 +25,7 @@ public:
 
     size_t calculate_attacks(const Unit& unit) const;
 
-    void fight(const Unit& currentUnit, std::span<std::pair<size_t, Weapon&>> selectedWeapons, const Unit& enemyUnit, uint16_t maximumDistance);
+    void fight(const Unit& currentUnit, std::span<std::pair<size_t, Weapon&>> selectedWeapons, const Unit& enemyUnit, uint16_t maximumDistance)const;
 
 protected:
     bool has_charged(const Unit& unit) const;

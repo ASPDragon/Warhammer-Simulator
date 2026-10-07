@@ -7,7 +7,6 @@
 #include "fight_phase.hpp"
 
 #include "datasheet.hpp"
-#include "player.hpp"
 #include "unit.hpp"
 #include "model.hpp"
 #include "vector.hpp"
@@ -16,7 +15,8 @@
 #include <limits>
 #include <utility>
 #include <algorithm>
-// #include <exception>
+#include <format>
+#include <stdexcept>
 
 bool Fight_Phase::pileIn(const Unit& currentUnit, const std::span<std::pair<size_t, Vector>> destination,
     const std::span<Unit> enemyUnits, const float maximumDistance) const {
@@ -90,7 +90,7 @@ bool Fight_Phase::can_fight(const Unit& unit) const {
     return unit.is_alive() && hasMelee;
 }
 
-void Fight_Phase::fight(const Unit& currentUnit, const std::span<std::pair<size_t, Weapon&>> selectedWeapons, const Unit& enemyUnit, const uint16_t maximumDistance)
+void Fight_Phase::fight(const Unit& currentUnit, const std::span<std::pair<size_t, Weapon&>> selectedWeapons, const Unit& enemyUnit, const uint16_t maximumDistance) const
 {
     if (!can_fight(currentUnit) || selectedWeapons.size() != currentUnit.models.size())
         throw std::logic_error{std::format("Unit #{} can't fight", currentUnit._datasheet.unit_id)};

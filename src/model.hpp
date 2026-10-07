@@ -27,7 +27,6 @@ struct Model {
     Vector coords;
     std::vector<Weapon> weapons;
 
-protected:
     [[nodiscard]] virtual bool is_dead() const;
     virtual void take_damage(uint16_t& damage);
 };
