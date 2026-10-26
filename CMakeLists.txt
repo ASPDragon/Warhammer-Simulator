@@ -44,6 +44,8 @@ set(PROJECT_SRC
         src/objective.cpp
         src/objective.hpp
         src/tests/unit_tests_pile_in.h
+        src/bounding_polygon.cpp
+        src/bounding_polygon.hpp
 )
 
 add_executable(${PROJECT_NAME} ${PROJECT_SRC})
