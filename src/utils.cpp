@@ -16,18 +16,6 @@ namespace utils {
         return std::fabs(a - b) <= epsilon;
     }
 
-    bool check_collision_circular(const Vector& center1, float radius1, const Vector& center2, float radius2)
-    {
-        const auto distanceX = center2.x - center1.x;
-        const auto distanceY = center2.y - center1.y;
-        auto distance = sqrt(distanceX * distanceX + distanceY * distanceY);
-
-        if (distance <= radius1 + radius2) {
-            return true;
-        }
-        return false;
-    }
-
     bool check_collision_polygon(const BoundingPolygon& polygon1, const BoundingPolygon& polygon2) {
         for (const auto normal : polygon1.normals) {
             

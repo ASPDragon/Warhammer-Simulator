@@ -17,6 +17,8 @@ struct Vector {
     Vector operator+(const Vector& vector) const { return { .x = this->x + vector.x, .y = this->y + vector.y }; }
     [[nodiscard]] Vector normalized() const { return Vector{ .x = this->x / this->length(), .y = this->y / this->length() }; }
 
+    bool check_collision_circular(const Vector& center1, float radius1, const Vector& center2, float radius2);
+
     float x;
     float y;
 };
