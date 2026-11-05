@@ -63,7 +63,7 @@ ValidationReport PileInAction::validate() const {
 
             const float new_distance = new_coords.calculate_distance(current_model.coords);
 
-            if (new_distance >= old_distance && !utils::nearly_equal(new_distance, old_distance)) {
+            if (new_distance >= old_distance && !utils::is_nearly_equal(new_distance, old_distance)) {
                 return ValidationReport("Error: Not Closer To Enemy");
             }
 
@@ -75,7 +75,7 @@ ValidationReport PileInAction::validate() const {
                 const auto new_coords_to_destination_distance =
                     new_coords.calculate_distance(closest_enemy.value().position);
 
-                if (!utils::nearly_equal(final_position_to_enemy_distance,
+                if (!utils::is_nearly_equal(final_position_to_enemy_distance,
                                         new_coords_to_destination_distance)) {
                     return ValidationReport("Unit Is Too Far");
                 }

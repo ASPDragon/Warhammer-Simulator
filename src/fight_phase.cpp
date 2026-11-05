@@ -43,7 +43,7 @@ bool Fight_Phase::pileIn(const Unit& currentUnit, const std::span<std::pair<size
             if (newCoordsToModelDistance <= maximumDistance) {
                 auto finalPositionToEnemyDistance = destination[i].second.calculate_distance(closestEnemy->coords);
                 auto newCoordsToDestinationDistance = newCoords.calculate_distance(closestEnemy->coords);
-                if (!utils::nearly_equal(finalPositionToEnemyDistance, newCoordsToDestinationDistance)) {
+                if (!utils::is_nearly_equal(finalPositionToEnemyDistance, newCoordsToDestinationDistance)) {
                     return false;
                 }
             }
