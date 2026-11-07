@@ -25,9 +25,10 @@
     {
         if (poly.vertices.size() < 3) return false;
         bool inside = false;
+
         for (size_t i = 0, j = poly.vertices.size() - 1; i < poly.vertices.size(); j = i++) {
-            const Vector point_a = poly.vertices[j];
-            const Vector point_b = poly.vertices[i];
+            const Vector& point_a = poly.vertices[j];
+            const Vector& point_b = poly.vertices[i];
             if (((point_a.y > center.y) != (point_b.y > center.y)) &&
                 center.x < (point_b.x - point_a.x) * (center.y - point_a.y) / (point_b.y - point_a.y) + point_a.x)
                 inside = !inside;
@@ -35,7 +36,20 @@
         return inside;
     }
 
-    bool circle_intersects_polygon(const Vector& center, float radius, const BoundingPolygon& poly) {}
+    bool circle_intersects_polygon(const Vector& center, float radius, const BoundingPolygon& poly) {
+        const auto radius_sq = radius * radius;
+        const auto n = poly.vertices.size();
+        if (n < 3) return false;
+
+        for (size_t i = 0; i <= n - 1; ++i) {
+            const Vector& a = poly.vertices[i];
+            const Vector& b = poly.vertices[(i + 1) % n];
+            const auto dist_sq = utils::dist_sq_to_edge(center, a, b);
+            if (dist_sq <= radius_sq) return true;
+        }
+
+        return is_center_inside_polygon(center, poly);
+    }
 
     bool check_collision_polygon(const BoundingPolygon& polygon1, const BoundingPolygon& polygon2) {
         for (const auto normal : polygon1.normals) {
