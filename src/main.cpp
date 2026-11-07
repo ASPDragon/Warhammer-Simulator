@@ -10,6 +10,7 @@
 
 #include "tests/unit_tests_unit.hpp"
 #include "tests/unit_tests_fight_phase.hpp"
+#include "tests/unit_test_circle_polygon_collision.hpp"
 
 int main() {
     testing::InitGoogleTest();

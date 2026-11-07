@@ -6,8 +6,7 @@
 
 #include <cmath>
 #include <vector>
-
-struct Vector;
+#include "vector.hpp"
 
 struct BoundingPolygon {
     BoundingPolygon(const Vector&, const std::vector<Vector>&);

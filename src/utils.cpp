@@ -11,14 +11,9 @@
 #include <cmath>
 #include <algorithm>
 
-
+namespace utils {
     bool is_nearly_equal(float a, float b, float epsilon) {
         return std::fabs(a - b) <= epsilon;
-    }
-
-    bool is_edge_hits_circle(const float dist_sq, const float radius)
-    {
-        return dist_sq <= radius * radius;
     }
 
     bool is_center_inside_polygon(const Vector& center, const BoundingPolygon& poly)
@@ -81,3 +76,4 @@
     {
         return std::min(std::max(min, value), max);
     }
+}
